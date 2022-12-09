@@ -11,6 +11,7 @@ import { TeacherSingUpComponent } from './components/teacher-sing-up/teacher-sin
 import { TeacherListComponent } from './components/teacher-list/teacher-list.component';
 import { TeacherDetailsComponent } from './components/teacher-details/teacher-details.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { HelpComponent } from './components/help/help.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     TeacherSingUpComponent,
     TeacherListComponent,
     TeacherDetailsComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,

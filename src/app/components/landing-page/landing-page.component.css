@@ -1,0 +1,83 @@
+div.cabecera {
+    width: 100%;
+    position: relative;
+    height: 100vh;
+}
+
+div.whiteboard {
+    background-image: url('../../../assets/images/pizarra.png');
+    height: 425px;
+    width: 600px;
+    background-size: cover;
+    position: absolute;
+    right: 0%;
+    top: 20%;
+    border-radius: 5px;
+}
+
+
+div.posit {
+    background-image: url('../../../assets/images/Buscador2.png');
+    height: 150px;
+    width: 200px;
+    background-size: cover;
+    position: absolute;
+    left: 23%;
+    top: 80%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .6s;
+}
+
+div.posit:hover {
+    height: 160px;
+    width: 210px;
+    top: 79%;
+
+}
+
+div.notebook {
+    background-image: url('../../../assets/images/menu.png');
+    height: 750px;
+    width: 600px;
+    background-size: cover;
+    position: absolute;
+    left: 0%;
+    top: 3%;
+}
+
+ul.opiniones {
+    position: absolute;
+    top: 25%;
+    list-style: circle;
+    right: 1%;
+    color: white;
+    font-size: 1.3em;
+    line-height: 1.8em;
+    font-family: 'Covered By Your Grace';
+    width: 36%;
+}
+
+ul.opiniones span {
+    font-size: 1.5em;
+}
+
+section {
+    margin: 80px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+section h3 {
+    text-align: center;
+    font-family: 'Handlee';
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+article {
+    margin: 0 auto;
+
+}

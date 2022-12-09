@@ -1,36 +1,41 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
 header nav {
-    background-color: var(--colornav);
+    background: linear-gradient(180deg, #A2FA8A 70%, #fff 86%);
     width: 100%;
-    height: 150px;
+    height: 170px;
 
 }
 
 #ayuda {
-    background-color: var(--colorAyuda);
+    background-color: white;
     border-radius: 50%;
     height: 25px;
     width: 25px;
     text-align: center;
-    padding-top: 2.5px;
+    padding-top: 4px;
     font-weight: bolder;
 }
 
 #ayuda:hover {
     transform: scale(1.2);
-    background-color: crimson;
+    background-color: var(--colorAyuda);
 }
 
 header nav ul li {
-    margin: 10px;
-    background-color: bisque;
+    margin: 15px;
+    background-color: white;
     padding: 7px;
     border-radius: 15px;
+    font-size: 1.2em;
     transition: 0.5s ease-out;
     cursor: pointer;
+    font-family: var(--fuentetitulos);
 }
 
 header nav ul li:hover {
-    background-color: tomato;
+    background-color: var(--Azul);
+
 }
 
 header nav ul {
@@ -45,52 +50,128 @@ header figure {
 }
 
 header figure img {
+    width: 11em;
+    height: 8em;
+    margin-top: -100px;
+    transition: 1s;
+    cursor: pointer;
+}
 
-    width: 10em;
-    height: 7em;
-    margin-top: -65px;
+header figure img:hover {
+
+    width: 12em;
+    height: 9em;
 }
 
 /* Comienzo de FOOTER */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
 footer nav {
     background-color: var(--colornav);
 }
+
 footer nav div {
     text-align: center;
     padding: 10px;
 }
+
 footer nav div h2 {
     font-weight: bolder;
     margin-bottom: 5px;
 }
-footer nav div ul li{
+
+footer nav div ul li {
     cursor: pointer;
 }
-footer nav div ul li:hover{
+
+footer nav div ul li:hover {
     color: white;
 }
+
 footer nav div#siguenos ul {
     padding: 5px;
 }
+
 footer nav div#siguenos ul li a {
     color: #000;
     padding: 5px;
     font-size: 20px;
 }
-footer nav div#siguenos ul li a#facebook:hover{
+
+footer nav div#siguenos ul li a#facebook:hover {
     color: #4267B2;
 }
-footer nav div#siguenos ul li a#twitter:hover{
+
+footer nav div#siguenos ul li a#twitter:hover {
     color: #1DA1F2;
 }
-footer nav div#siguenos ul li a#youtube:hover{
+
+footer nav div#siguenos ul li a#youtube:hover {
     color: red;
 }
+
 footer nav hr {
     width: 75%;
     margin: auto;
 }
+
+footer nav div#copyright {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Comienzo de FOOTER */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+footer nav {
+    background-color: var(--colornav);
+}
+
+footer nav div {
+    text-align: center;
+    padding: 10px;
+}
+
+footer nav div h2 {
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+footer nav div ul li {
+    cursor: pointer;
+}
+
+footer nav div ul li:hover {
+    color: white;
+}
+
+footer nav div#siguenos ul {
+    padding: 5px;
+}
+
+footer nav div#siguenos ul li a {
+    color: #000;
+    padding: 5px;
+    font-size: 20px;
+}
+
+footer nav div#siguenos ul li a#facebook:hover {
+    color: #4267B2;
+}
+
+footer nav div#siguenos ul li a#twitter:hover {
+    color: #1DA1F2;
+}
+
+footer nav div#siguenos ul li a#youtube:hover {
+    color: red;
+}
+
+footer nav hr {
+    width: 75%;
+    margin: auto;
+}
+
 footer nav div#copyright {
     display: flex;
     justify-content: center;
