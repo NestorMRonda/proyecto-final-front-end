@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HelpComponent } from './components/help/help.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { StudentSingUpComponent } from './components/student-sing-up/student-sing-up.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'list/teacher', component: TeacherListComponent },
   { path: 'profile/teacher', component: TeacherPrivateComponent },
   { path: 'teacher/:teacherId', component: TeacherDetailsComponent },
+  { path: 'help', component: HelpComponent },
   { path: '**', redirectTo: 'home' }
 
 ];
