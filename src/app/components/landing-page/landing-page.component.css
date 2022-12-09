@@ -65,7 +65,7 @@ ul.opiniones span {
 section {
     margin: 80px auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -75,9 +75,52 @@ section h3 {
     font-weight: bold;
     text-align: center;
     width: 100%;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px black;
 }
 
-article {
-    margin: 0 auto;
 
+article.subjects {
+    font-family: 'Montserrat';
+    background-color: var(--Aguamarina);
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    transition: .7s;
+}
+
+article.subjects:hover {
+    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.514);
+    padding: 24px;
+}
+
+article.teachers {
+    margin-top: 35px;
+    background-color: var(--Amarillo);
+    min-height: 300px;
+    min-width: 350px;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 1s;
+    font-family: 'Handlee';
+}
+
+article.teachers:hover {
+    cursor: pointer;
+    background-color: rgb(248, 222, 108);
+    margin-top: 30px;
+}
+
+article.teachers img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+article.teachers:hover img {
+    opacity: 0.8;
 }
