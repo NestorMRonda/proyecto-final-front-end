@@ -22,4 +22,38 @@
 
 
 
+
+
 <router-outlet></router-outlet>
+
+<hr>
+<footer class="container-fluid">
+  <nav class="row">
+    <div id="sobre_nosotros"class="col-4">
+      <h2>Sobre nosotros</h2>
+      <ul>
+        <li [routerLink]="['/']">¿Quienes somos?</li>
+        <li [routerLink]="['/']">Nuestros valores</li>
+      </ul>
+    </div>
+    <div id="asistencia" class="col-4">
+      <h2>Asistencia</h2>
+      <ul>
+        <li [routerLink]="['/']">Contacto</li>
+        <li [routerLink]="['/']">Ayuda</li>
+      </ul>
+    </div>
+    <div id="siguenos"class="col-4">
+      <h2>Siguenos</h2>
+      <ul>
+        <li>
+          <a href="" id="facebook"><i class="bi bi-facebook" [routerLink]="['/']"></i></a>
+          <a href="" id="twitter"><i class="bi bi-twitter" [routerLink]="['/']"></i></a>
+          <a href="https://www.youtube.com/@10MinutosProgramando" id="youtube"><i class="bi bi-youtube"></i></a>
+        </li>
+      </ul>
+    </div>
+    <hr>
+    <div id="copyright">© 2022 TeacherApp , Explora. Aprende</div>
+  </nav>
+</footer>
