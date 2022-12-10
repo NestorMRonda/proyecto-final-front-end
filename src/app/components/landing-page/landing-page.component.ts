@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SubjectsService } from 'src/app/services/subjects.service';
 import { TeachersService } from 'src/app/services/teachers.service';
 
@@ -10,15 +12,23 @@ import { TeachersService } from 'src/app/services/teachers.service';
 
 export class LandingPageComponent {
   arrBestSubjects: any[];
-  arrSubjects: any[]
+  arrSubjects: any[];
 
-  arrTeachers: any[]
-  arrBestTeachers: any[]
-  constructor(private subjectService: SubjectsService, private teachersService: TeachersService) {
+  arrTeachers: any[];
+  arrBestTeachers: any[];
+
+  formulario: FormGroup
+  constructor(private subjectService: SubjectsService, private teachersService: TeachersService, private router: Router) {
     this.arrBestSubjects = [];
-    this.arrSubjects = []
-    this.arrTeachers = []
-    this.arrBestTeachers = []
+    this.arrSubjects = [];
+    this.arrTeachers = [];
+    this.arrBestTeachers = [];
+
+    this.formulario = new FormGroup({
+      subject: new FormControl(''),
+      city: new FormControl(''),
+      remote: new FormControl('')
+    })
   }
 
   async ngOnInit() {
@@ -39,8 +49,13 @@ export class LandingPageComponent {
         this.arrBestTeachers.push(teacher)
       }
     }
-
   }
 
+
+  onSubmit() {
+
+    console.log(this.formulario.value)
+    this.router.navigate(['/list', 'teacher'])
+  }
 }
 

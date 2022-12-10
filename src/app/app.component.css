@@ -2,7 +2,7 @@
 
 div.wrapper {
     position: relative;
-    padding-bottom: 200px;
+    padding-bottom: 300px;
     min-height: 100vh;
 }
 
@@ -64,7 +64,6 @@ header figure img {
 }
 
 header figure img:hover {
-
     width: 12em;
     height: 9em;
 }
@@ -73,10 +72,12 @@ header figure img:hover {
 footer {
     position: absolute;
     bottom: 0;
+    background: linear-gradient(360deg, #A2FA8A 59%, #fff 91%);
+    height: 300px;
 }
 
 footer nav {
-    background-color: var(--colornav);
+    margin-top: 110px;
 }
 
 

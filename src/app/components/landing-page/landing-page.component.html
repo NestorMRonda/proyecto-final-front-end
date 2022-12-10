@@ -5,8 +5,34 @@
         <div class="cabecera">
             <div class="whiteboard">
             </div>
-            <div class="notebook"></div>
-            <div class="posit"></div>
+            <div class="notebook">
+
+                <form [formGroup]="formulario" class="busqueda" (ngSubmit)="onSubmit()">
+                    <div class="asignaturas">
+                        <select formControlName="subject">
+                            <option value="" selected disabled>Todas</option>
+                            <option *ngFor="let subject of this.arrSubjects" [value]="subject.name">{{subject.name}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="ciudad">
+                        <select formControlName="city">
+                            <option value="" selected disabled>Ciudad</option>
+                            <option value="madrid">Madrid</option>
+                            <option value="barcelona">Barcelona</option>
+                            <option value="valencia">Valencia</option>
+                        </select>
+                    </div>
+                    <div class="remote">
+                        <input formControlName="remote" type="checkbox">
+                    </div>
+
+                    <div>
+                        <input type="submit" value="">
+                    </div>
+                    <div class="posit"></div>
+                </form>
+            </div>
             <ul class="opiniones">
                 <li><span>Felipe:</span> Mi profesor Néstor es de los mejores programadores en España actualmente</li>
                 <li><span>Juanan:</span> Mario enseña bastante bien js pero echo de menos el color tomato</li>
@@ -14,6 +40,7 @@
                 <li><span>Javier:</span> I'm improving my level of english really quickly</li>
             </ul>
         </div>
+
         <section>
             <h3>Asignaturas TOP</h3>
             <article class="subjects" *ngFor="let subject of this.arrBestSubjects">

@@ -22,8 +22,8 @@ div.posit {
     width: 200px;
     background-size: cover;
     position: absolute;
-    left: 23%;
-    top: 80%;
+    right: 8.1%;
+    top: 73%;
     border-radius: 8px;
     cursor: pointer;
     transition: .6s;
@@ -62,11 +62,115 @@ ul.opiniones span {
     font-size: 1.5em;
 }
 
+
+
+form.busqueda div.asignaturas select {
+    position: absolute;
+    top: 51%;
+    right: 14%;
+    transform: rotateZ(15deg);
+    background: none;
+    border-radius: 10px;
+    border: 2px solid black;
+    height: 30px;
+    width: 120px;
+    font-family: 'Covered By Your Grace';
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: .6s;
+}
+
+form.busqueda div.asignaturas select:hover {
+    background-color: black;
+    color: white;
+}
+
+/* No me pilla ni el cursor pointer ni la font family */
+form.busqueda div.asignaturas select option {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Covered By Your Grace', Verdana, Geneva, Tahoma, sans-serif;
+    transition: .6s;
+}
+
+form.busqueda div.asignaturas select option:hover {
+    background-color: black;
+    color: white;
+}
+
+
+form.busqueda div.ciudad select {
+    position: absolute;
+    top: 56%;
+    right: 22%;
+    transform: rotateZ(15deg);
+    background: none;
+    border-radius: 10px;
+    border: 2px solid black;
+    height: 30px;
+    width: 150px;
+    font-family: 'Covered By Your Grace';
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: .6s;
+}
+
+form.busqueda div.ciudad select:hover {
+    background-color: black;
+    color: white;
+}
+
+form.busqueda div.ciudad select option {
+    background-color: white;
+    font-family: 'Covered By Your Grace', Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+    color: black;
+}
+
+form.busqueda div.ciudad select option:hover {
+    background-color: black;
+    color: white;
+}
+
+form.busqueda div.remote input {
+    position: absolute;
+    top: 60.5%;
+    right: 44%;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    outline: 3px solid black;
+    border-radius: 3px;
+    background-color: white;
+
+}
+
+
+form.busqueda input[type="submit"] {
+    position: absolute;
+    top: 73%;
+    right: 8.1%;
+    background: none;
+    border-radius: 10px;
+    height: 150px;
+    width: 205px;
+    cursor: pointer;
+    transition: .6s;
+    z-index: 1;
+}
+
+form.busqueda input[type="submit"]:hover {
+    box-shadow: 2px 2px 2px 3px black;
+}
+
 section {
     margin: 80px auto;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    gap: 15px;
 }
 
 section h3 {
