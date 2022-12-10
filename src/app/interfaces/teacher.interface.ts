@@ -10,6 +10,6 @@ export interface Teacher {
     experience: string,
     pricehour: number,
     address: string,
-    active: boolean
+    active: boolean //A lo mejor es number
 
 }
