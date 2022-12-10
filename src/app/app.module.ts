@@ -12,6 +12,8 @@ import { TeacherListComponent } from './components/teacher-list/teacher-list.com
 import { TeacherDetailsComponent } from './components/teacher-details/teacher-details.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HelpComponent } from './components/help/help.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,11 @@ import { HelpComponent } from './components/help/help.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
