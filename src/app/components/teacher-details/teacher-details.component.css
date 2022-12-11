@@ -1,0 +1,19 @@
+article {
+    margin-top: 35px;
+    background-color: var(--Azul);
+    min-height: 300px;
+    min-width: 350px;
+    margin: 0 auto;
+    width: 400px;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 1s;
+    font-family: 'Montserrat';
+    cursor: pointer;
+}
+
+article img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}

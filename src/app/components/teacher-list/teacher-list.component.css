@@ -15,6 +15,7 @@ article {
     padding: 10px;
     transition: 1s;
     font-family: 'Montserrat';
+    cursor: pointer;
 }
 
 article img {
@@ -106,6 +107,11 @@ div.filter select {
     transition: .6s;
     margin: 5px;
     text-align: center;
+    transition: .6s;
+}
+
+div.filter select:hover {
+    background-color: #393d4e;
 }
 
 button.apply {

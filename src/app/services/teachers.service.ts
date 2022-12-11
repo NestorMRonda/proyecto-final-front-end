@@ -20,4 +20,10 @@ export class TeachersService {
       this.httpClient.get<any>(this.baseUrl)
     )
   }
+
+  getById(pId: number) {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/${pId}`)
+    )
+  }
 }

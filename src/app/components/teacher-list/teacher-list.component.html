@@ -14,23 +14,23 @@
             <p> Puntuación mínima: {{score}} / 10</p>
         </div>
     </div>
-    <select>
-        <!-- Aquí habrá que meter un ngfor recuperando todas las cudades -->
-        <option value="" selected disabled>Ciudad</option>
+    <select [(ngModel)]="city">
+        <!-- Aquí habrá que meter un ngfor recuperando todas las ciudades -->
+        <option value="Ciudad" selected disabled>Ciudad</option>
         <option value="madrid">Madrid</option>
         <option value="barcelona">Barcelona</option>
         <option value="valencia">Valencia</option>
     </select>
-    <select>
-        <option value="" selected disabled>Asignaturas</option>
+    <select [(ngModel)]="asignatura">
+        <option value="Asignatura" selected disabled>Asignaturas</option>
         <option *ngFor="let subject of this.arrSubjects" [value]="subject.name">{{subject.name}}
         </option>
     </select>
-    <button class="apply" value="">Aplicar</button>
+    <button class="apply" value="" (click)="onSubmit()">Aplicar</button>
 </div>
 
 <section>
-    <article *ngFor="let teacher of arrTeachers">
+    <article *ngFor="let teacher of arrTeachers" (click)="onNavigate(teacher.id)">
         <!-- El src realmente será el teacher.avatar -->
         <img src="../../../assets/images/entrepreneur-593371_640.jpg" alt="Avatar">
         <h4>{{teacher.name}}</h4>
