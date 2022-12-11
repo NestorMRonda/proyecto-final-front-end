@@ -1,1 +1,40 @@
-<p>teacher-list works!</p>
+<div class="filter">
+    <div class="price-filter-container">
+        <button (click)="changeDisplayPrice()">Precio</button>
+        <div *ngIf="showPrice" class="price-filter">
+            <input type="range" min="0" max="50" [(ngModel)]="price">
+            <p> Precio máximo: {{price}} €/hora</p>
+        </div>
+    </div>
+
+    <div class="score-filter-container">
+        <button (click)="changeDisplayScore()">Puntuación</button>
+        <div *ngIf="showScore" class="score-filter">
+            <input type="range" min="0" max="10" [(ngModel)]="score">
+            <p> Puntuación mínima: {{score}} / 10</p>
+        </div>
+    </div>
+    <select>
+        <!-- Aquí habrá que meter un ngfor recuperando todas las cudades -->
+        <option value="" selected disabled>Ciudad</option>
+        <option value="madrid">Madrid</option>
+        <option value="barcelona">Barcelona</option>
+        <option value="valencia">Valencia</option>
+    </select>
+    <select>
+        <option value="" selected disabled>Asignaturas</option>
+        <option *ngFor="let subject of this.arrSubjects" [value]="subject.name">{{subject.name}}
+        </option>
+    </select>
+    <button class="apply" value="">Aplicar</button>
+</div>
+
+<section>
+    <article *ngFor="let teacher of arrTeachers">
+        <!-- El src realmente será el teacher.avatar -->
+        <img src="../../../assets/images/entrepreneur-593371_640.jpg" alt="Avatar">
+        <h4>{{teacher.name}}</h4>
+        <p>{{teacher.pricehour}}</p>
+
+    </article>
+</section>

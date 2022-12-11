@@ -1,0 +1,126 @@
+section {
+    margin: 80px auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+article {
+    margin-top: 35px;
+    background-color: var(--Azul);
+    min-height: 300px;
+    min-width: 350px;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 1s;
+    font-family: 'Montserrat';
+}
+
+article img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+div.filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 100px;
+    font-family: 'Montserrat';
+}
+
+div.price-filter-container {
+    position: relative;
+}
+
+div.score-filter-container {
+    position: relative;
+}
+
+div.price-filter {
+    position: absolute;
+    top: 40%;
+    left: 6.5%;
+    background-color: #393d4e;
+    color: white;
+    height: 80px;
+    width: 230px;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Montserrat';
+    line-height: 20px;
+}
+
+div.price-filter input {
+    width: 150px;
+    cursor: pointer;
+}
+
+
+div.score-filter {
+    position: absolute;
+    top: 40%;
+    left: 6.5%;
+    background-color: #393d4e;
+    color: white;
+    height: 80px;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Montserrat';
+    line-height: 20px;
+}
+
+div.score-filter input {
+    cursor: pointer;
+}
+
+button {
+    width: 140px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: var(--colorsecundario);
+    border: none;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    cursor: pointer;
+    transition: .6s;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #393d4e;
+}
+
+div.filter select {
+    width: 140px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: var(--colorsecundario);
+    border: none;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    cursor: pointer;
+    transition: .6s;
+    margin: 5px;
+    text-align: center;
+}
+
+button.apply {
+    background-color: var(--Azul);
+    margin-left: 20px;
+    width: 180px;
+    height: 45px;
+    font-size: 1.2em;
+    transition: 1s;
+}
+
+button.apply:hover {
+    background-color: rgb(127, 209, 146);
+    margin-left: 20px;
+    width: 190px;
+    height: 55px;
+    font-size: 1.3em;
+}

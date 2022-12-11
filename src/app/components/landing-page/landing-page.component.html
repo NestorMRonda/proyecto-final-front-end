@@ -10,7 +10,7 @@
                 <form [formGroup]="formulario" class="busqueda" (ngSubmit)="onSubmit()">
                     <div class="asignaturas">
                         <select formControlName="subject">
-                            <option value="" selected disabled>Todas</option>
+                            <option value="" selected disabled>Cualquiera</option>
                             <option *ngFor="let subject of this.arrSubjects" [value]="subject.name">{{subject.name}}
                             </option>
                         </select>
