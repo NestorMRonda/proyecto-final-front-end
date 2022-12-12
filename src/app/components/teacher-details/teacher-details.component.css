@@ -1,19 +1,51 @@
-article {
+article.teacher {
     margin-top: 35px;
-    background-color: var(--Azul);
-    min-height: 300px;
-    min-width: 350px;
-    margin: 0 auto;
-    width: 400px;
+    background-color: var(--colorsecundario);
+    color: white;
+    min-height: 480px;
+    min-width: 550px;
+    max-width: 360px;
     border-radius: 10px;
     padding: 10px;
     transition: 1s;
     font-family: 'Montserrat';
-    cursor: pointer;
+    margin: 0 auto;
 }
 
-article img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+
+article.teacher img {
+    width: 320px;
+    height: 250px;
+    border-radius: 3%;
+}
+
+article.teacher h4 {
+    font-weight: bold;
+    padding: 10px;
+}
+
+article.teacher p {
+    padding: 10px;
+    font-size: 15px;
+    width: 320px;
+}
+
+article.teacher p span {
+    font-weight: bold;
+}
+
+article.teacher div.tags ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 5px;
+    padding: 5px;
+}
+
+article.teacher div.tags ul li {
+    padding: 5px;
+    background-color: var(--Verde);
+    color: black;
+    border-radius: 5px;
+    transition: 1s;
 }

@@ -1,6 +1,17 @@
-<article>
+<article class="teacher">
+    <!-- El src realmente será el teacher.avatar -->
     <img src="../../../assets/images/entrepreneur-593371_640.jpg" alt="Avatar">
-    <h4>{{teacher.name}}</h4>
-    <p>{{teacher.pricehour}}</p>
+    <div class="cabecera-teacher">
+        <h4>{{teacher.name}}</h4>
+        <small>{{teacher.media_score}}⭐</small>
+    </div>
+    
+    <div class="tags">
+        <ul>
+            <li>{{teacher.pricehour}} €/hora</li>
+            <li>Remote</li>
+        </ul>
+    </div>
 
+    <p><span>Descripción:</span> {{teacher.experience}}</p>
 </article>
