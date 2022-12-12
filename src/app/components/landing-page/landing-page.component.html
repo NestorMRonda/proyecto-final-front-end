@@ -50,7 +50,7 @@
         </section>
         <section>
             <h3>Profesores TOP</h3>
-            <article class="teachers" *ngFor="let teacher of this.arrBestTeachers">
+            <article (click)="onNavigate(teacher.id)" class="teachers" *ngFor="let teacher of this.arrBestTeachers">
                 <!-- El src realmente será el teacher.avatar -->
                 <div class="cabecera-teacher">
                     <h4>{{teacher.name}}</h4>

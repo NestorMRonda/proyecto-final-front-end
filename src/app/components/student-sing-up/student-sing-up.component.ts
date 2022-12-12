@@ -16,7 +16,7 @@ export class StudentSingUpComponent {
 
     this.emailRegExp = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)
 
-    this.regExp = new RegExp(/^[a-zA-Z]\w{3,14}$/)
+    this.regExp = new RegExp(/^(?=.*\d).{4,30}$/)
 
 
     this.formulario = new FormGroup({
