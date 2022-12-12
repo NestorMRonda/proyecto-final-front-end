@@ -27,7 +27,7 @@ export class StudentSingUpComponent {
       email: new FormControl('pepito@gmail.com', [Validators.required, Validators.pattern(this.emailRegExp)]),
       password: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
       repitePassword: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
-      phone: new FormControl('655875404', [Validators.required, Validators.minLength(9)]),
+      phone: new FormControl('655875404', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
       image: new FormControl('')
 
     })
