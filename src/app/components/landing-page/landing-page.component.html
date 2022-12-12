@@ -52,13 +52,14 @@
             <h3>Profesores TOP</h3>
             <article class="teachers" *ngFor="let teacher of this.arrBestTeachers">
                 <!-- El src realmente será el teacher.avatar -->
-                <h4>{{teacher.name}}</h4>
-                <p>score</p>
+                <div class="cabecera-teacher">
+                    <h4>{{teacher.name}}</h4>
+                    <small>{{teacher.media_score}}⭐</small>
+                </div>
                 <img src="../../../assets/images/entrepreneur-593371_640.jpg" alt="Avatar">
                 <div class="tags">
                     <ul>
                         <li>{{teacher.pricehour}} €/hora</li>
-
                         <li>Remote</li>
                     </ul>
                 </div>

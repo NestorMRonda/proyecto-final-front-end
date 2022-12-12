@@ -32,3 +32,11 @@ a {
 .blocked {
     opacity: 0.6;
 }
+
+input.ng-invalid.ng-touched {
+    border: 3px solid lightcoral;
+}
+
+input.ng-valid.ng-touched {
+    border: 3px solid lightgreen;
+}

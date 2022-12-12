@@ -205,7 +205,7 @@ article.teachers {
     margin-top: 35px;
     background-color: var(--colorsecundario);
     color: white;
-    min-height: 400px;
+    min-height: 480px;
     min-width: 350px;
     max-width: 360px;
     border-radius: 10px;
@@ -216,8 +216,7 @@ article.teachers {
 
 article.teachers:hover {
     cursor: pointer;
-    background-color: rgb(248, 222, 108);
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 article.teachers img {
@@ -247,6 +246,27 @@ article.teachers p span {
 article.teachers ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 5px;
+    padding: 5px;
+}
+
+article.teachers ul li {
+    padding: 5px;
+    background-color: var(--Verde);
+    color: black;
+    border-radius: 5px;
+    transition: 1s;
+}
+
+article.teachers ul li:hover {
+    background-color: var(--colornav);
+}
+
+article.teachers div.cabecera-teacher {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 article.teachers:hover img {

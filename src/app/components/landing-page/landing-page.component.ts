@@ -40,11 +40,11 @@ export class LandingPageComponent {
       }
     }
 
-    //Petición back que devuelva score y subject
+    //Petición back que devuelva aquellos profesores con mejor puntuación.
+    // Hacerlo como slider
     this.arrTeachers = await this.teachersService.getAll();
 
     for (let teacher of this.arrTeachers) {
-      //Esto hace que en el array de muestra de solo aparezcan las primeras 5 asignaturas de la base de datos
       if (this.arrBestTeachers.length < 4) {
         this.arrBestTeachers.push(teacher)
       }

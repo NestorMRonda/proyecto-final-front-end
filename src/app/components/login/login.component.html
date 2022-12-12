@@ -1,14 +1,11 @@
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-group container">
     <div class="my-4">
-        <input formControlName="email" type="email"
-            [ngClass]="{'border-danger':formulario.get('email')?.hasError('required')}"
-            class="form-control offset-3 w-50" placeholder="Email: example@gmail.com">
+        <input formControlName="email" type="email" class="form-control offset-3 w-50"
+            placeholder="Email: example@gmail.com">
         <small *ngIf="checkError('email', 'required')" class="text-danger">Requerido</small>
     </div>
     <div class="my-2">
-        <input formControlName="password" type="password"
-            [ngClass]="{'border-danger':formulario.get('password')?.hasError('required')}"
-            class="form-control offset-3 w-50" placeholder="Password">
+        <input formControlName="password" type="password" class="form-control offset-3 w-50" placeholder="Password">
         <small *ngIf="checkError('password', 'required')" class=" text-danger">Requerido</small>
     </div>
     <div>
@@ -17,5 +14,5 @@
     </div>
 </form>
 
-<p class="container text-center my-3">¿Aún no te has registrado? <a [routerLink]="['/form','students']">Apuntate</a>
+<p class="container text-center my-3">¿Aún no te has registrado? <a [routerLink]="['/form','students']">Regístrate</a>
 </p>

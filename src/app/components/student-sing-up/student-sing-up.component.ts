@@ -14,14 +14,14 @@ export class StudentSingUpComponent {
 
   constructor() {
 
-    this.emailRegExp = new RegExp(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
+    this.emailRegExp = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)
 
-    this.regExp = new RegExp(/^[0-9]\d{0,2}$/)
+    this.regExp = new RegExp(/^[a-zA-Z]\w{3,14}$/)
 
 
     this.formulario = new FormGroup({
 
-      name: new FormControl('Javie', [Validators.required]),
+      name: new FormControl('', [Validators.required]),
       surname: new FormControl('Agudo', [Validators.required]),
       birthdate: new FormControl(Date, [Validators.required]),
       email: new FormControl('pepito@gmail.com', [Validators.required, Validators.pattern(this.emailRegExp)]),
