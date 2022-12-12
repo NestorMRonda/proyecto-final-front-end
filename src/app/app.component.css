@@ -56,7 +56,7 @@ header figure {
 }
 
 header figure img {
-    width: 11em;
+    width: 15em;
     height: 8em;
     margin-top: -100px;
     transition: 1s;
@@ -64,7 +64,7 @@ header figure img {
 }
 
 header figure img:hover {
-    width: 12em;
+    width: 16em;
     height: 9em;
 }
 

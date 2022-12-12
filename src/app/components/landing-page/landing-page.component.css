@@ -198,14 +198,16 @@ article.subjects {
 
 article.subjects:hover {
     box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.514);
-    padding: 24px;
+    margin-top: 20px;
 }
 
 article.teachers {
     margin-top: 35px;
-    background-color: var(--Amarillo);
-    min-height: 300px;
+    background-color: var(--colorsecundario);
+    color: white;
+    min-height: 400px;
     min-width: 350px;
+    max-width: 360px;
     border-radius: 10px;
     padding: 10px;
     transition: 1s;
@@ -219,10 +221,32 @@ article.teachers:hover {
 }
 
 article.teachers img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    width: 320px;
+    height: 250px;
+    border-radius: 3%;
     transition: 1s;
+}
+
+article.teachers h4 {
+    font-weight: bold;
+    padding: 10px;
+}
+
+article.teachers p {
+    padding: 10px;
+    font-size: 15px;
+    width: 320px;
+}
+
+article.teachers p span {
+    font-weight: bold;
+}
+
+article.teachers ul {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 article.teachers:hover img {

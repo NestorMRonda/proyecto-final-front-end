@@ -1,1 +1,30 @@
-<p>student-sing-up works!</p>
+<p>f</p>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-group container">
+    <div class="my-2">
+        <input formControlName="name" type="text"
+            [ngClass]="{'border-danger':formulario.get('name')?.hasError('required')}"
+            class="form-control offset-3 w-50" placeholder="Nombre">
+        <small *ngIf="checkError('name', 'required')" class=" text-danger">Requerido</small>
+    </div>
+    <div class="my-4">
+        <input formControlName="email" type="email"
+            [ngClass]="{'border-danger':formulario.get('email')?.hasError('required')}"
+            class="form-control offset-3 w-50" placeholder="Email: example@gmail.com">
+        <small *ngIf="checkError('email', 'required')" class="text-danger">Requerido</small>
+    </div>
+    <div class="my-2">
+        <input formControlName="password" type="password"
+            [ngClass]="{'border-danger':formulario.get('password')?.hasError('required')}"
+            class="form-control offset-3 w-50" placeholder="Password">
+        <small *ngIf="checkError('password', 'required')" class=" text-danger">Requerido</small>
+    </div>
+    <div class="form-group my-2">
+        <label>Imagen</label>
+        <!--El tipo de la imágen tiene que ser file -->
+        <input type="file" class="form-control" name="image" formControlName="image">
+    </div>
+    <div>
+        <input [disabled]="!formulario.valid" [ngClass]="{'blocked': !formulario.valid}"
+            class="btn btn-dark offset-5 w-25" type="submit" value="Entrar">
+    </div>
+</form>
