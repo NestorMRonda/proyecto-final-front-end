@@ -1,0 +1,51 @@
+p {
+    font-family: 'Montserrat';
+    padding-left: 70px;
+}
+
+input {
+    font-family: 'Montserrat';
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    color: var(--colorsecundario);
+    background-color: var(--Verde);
+}
+
+input[type="submit"]:hover {
+    color: var(--colorsecundario);
+    background-color: rgb(162, 250, 138);
+}
+
+
+small {
+    margin-top: 5px;
+    margin-left: 25%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+label {
+    margin-top: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input.ng-invalid.ng-touched {
+    border: 3px solid lightcoral;
+}
+
+input.ng-valid.ng-touched {
+    border: 3px solid lightgreen;
+}
+
+select {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+select option {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+textarea {
+    font-family: 'Montserrat';
+}
