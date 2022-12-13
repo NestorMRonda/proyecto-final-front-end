@@ -16,4 +16,10 @@ export class SubjectsService {
       this.httpClient.get<any>(this.baseUrl)
     )
   }
+
+  getSubjectsDistinct() {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/distinct`)
+    )
+  }
 }

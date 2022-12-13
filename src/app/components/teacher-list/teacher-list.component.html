@@ -30,11 +30,23 @@
 </div>
 
 <section>
-    <article *ngFor="let teacher of arrTeachers" (click)="onNavigate(teacher.id)">
+    <article class="teachers" *ngFor="let teacher of arrTeachers" (click)="onNavigate(teacher.id)">
         <!-- El src realmente será el teacher.avatar -->
+
+        <div class="cabecera-teacher">
+            <h4>{{teacher.name}}</h4>
+            <small>{{teacher.media_score}}⭐</small>
+        </div>
         <img src="../../../assets/images/entrepreneur-593371_640.jpg" alt="Avatar">
-        <h4>{{teacher.name}}</h4>
-        <p>{{teacher.pricehour}}</p>
+        <div class="tags">
+            <ul>
+                <li>{{teacher.pricehour}} €/hora</li>
+                <li>{{(teacher.remote === 1)? 'Remoto': 'Presencial'}}</li>
+                <li>{{teacher.subject}}</li>
+            </ul>
+        </div>
+
+        <p><span>Descripción:</span> {{teacher.experience}}</p>
 
     </article>
 </section>

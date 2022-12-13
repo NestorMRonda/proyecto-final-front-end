@@ -30,6 +30,13 @@ export class TeachersService {
   getComents(pId: number) {
     return firstValueFrom(
       this.httpClient.get<any>(`${this.baseUrl}/${pId}/coments`)
+
+    )
+  }
+
+  sortByScore(pMin: number, pMax: number) {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/score`)
     )
   }
 }

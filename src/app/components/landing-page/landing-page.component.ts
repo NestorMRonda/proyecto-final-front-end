@@ -42,10 +42,13 @@ export class LandingPageComponent {
 
     //Petición back que devuelva aquellos profesores con mejor puntuación.
     // Hacerlo como slider
-    this.arrTeachers = await this.teachersService.getAll();
+    //limitar el teacher.experience a 50 caracteres
+    this.arrTeachers = await this.teachersService.sortByScore(0, 10);
 
     for (let teacher of this.arrTeachers) {
-      if (this.arrBestTeachers.length < 4) {
+      if (this.arrBestTeachers.length < 3) {
+        /* Aquí el limitado a x caracteres */
+        teacher.experience = teacher.experience.slice(0, 380) + '...';
         this.arrBestTeachers.push(teacher)
       }
     }
@@ -56,6 +59,10 @@ export class LandingPageComponent {
 
     console.log(this.formulario.value)
     this.router.navigate(['/list', 'teacher'])
+  }
+
+  onNavigate(pId: number) {
+    this.router.navigate(['/teacher', pId])
   }
 }
 

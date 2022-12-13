@@ -19,14 +19,25 @@
         <input formControlName="email" type="email" class="form-control offset-3 w-50"
             placeholder="Email: example@gmail.com">
         <small *ngIf="checkError('email', 'required')" class="text-danger">Requerido</small>
+        <small *ngIf="checkError('email', 'pattern')" class="text-danger">El formato del email no es correcto</small>
     </div>
     <div class="my-2">
         <input formControlName="password" type="password" class="form-control offset-3 w-50" placeholder="Password">
         <small *ngIf="checkError('password', 'required')" class=" text-danger">Requerido</small>
+        <small *ngIf="checkError('password', 'pattern')" class="text-danger">La contraseña debe medir entre 4 y 30
+            caracteres y debe incluir al menos un número</small>
+    </div>
+    <div class="my-2">
+        <input formControlName="repitePassword" type="password" class="form-control offset-3 w-50"
+            placeholder="Repite la password">
+        <small *ngIf=" repitePasswordValidator(formulario)" class=" text-danger">Las contraseñas no
+            coinciden</small>
     </div>
     <div class="my-4">
-        <input formControlName="phone" type="text" class="form-control offset-3  w-50" placeholder="phone">
+        <input formControlName="phone" type="text" class="form-control offset-3  w-50" placeholder="Teléfono">
         <small *ngIf="checkError('phone', 'required')" class=" text-danger">Requerido</small>
+        <small *ngIf="checkError('phone', 'minlength')" class=" text-danger">Tiene menos de 9 carácteres</small>
+        <small *ngIf="checkError('phone', 'maxlength')" class=" text-danger">Tiene más de 9 caracteres</small>
     </div>
     <div class="container w-50 form-group my-2">
         <label class="label my-2">Imagen avatar</label>

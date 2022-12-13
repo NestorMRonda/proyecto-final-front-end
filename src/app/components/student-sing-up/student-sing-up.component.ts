@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-student-sing-up',
@@ -16,7 +16,7 @@ export class StudentSingUpComponent {
 
     this.emailRegExp = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)
 
-    this.regExp = new RegExp(/^[a-zA-Z]\w{3,14}$/)
+    this.regExp = new RegExp(/^(?=.*\d).{4,30}$/)
 
 
     this.formulario = new FormGroup({
@@ -27,10 +27,10 @@ export class StudentSingUpComponent {
       email: new FormControl('pepito@gmail.com', [Validators.required, Validators.pattern(this.emailRegExp)]),
       password: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
       repitePassword: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
-      phone: new FormControl('655875404', [Validators.required, Validators.minLength(9)]),
+      phone: new FormControl('655875404', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
       image: new FormControl('')
 
-    })
+    }, [this.repitePasswordValidator])
   }
 
   onSubmit() {
@@ -41,5 +41,19 @@ export class StudentSingUpComponent {
 
   checkError(campo: string, error: string): boolean | undefined {
     return this.formulario.get(campo)?.hasError(error) && this.formulario.get(campo)?.touched
+  }
+
+  repitePasswordValidator(form: AbstractControl) {
+    const passwordValue = form.get('password')?.value;
+    const repitePasswordValue = form.get('repitePassword')?.value;
+
+    if (passwordValue === repitePasswordValue) {
+
+      form.get('repitePassword')?.setErrors(null)
+      return null
+    } else {
+      form.get('repitePassword')?.setErrors({ repitepasswordvalidator: true });
+      return { repitepasswordvalidator: true }
+    }
   }
 }
