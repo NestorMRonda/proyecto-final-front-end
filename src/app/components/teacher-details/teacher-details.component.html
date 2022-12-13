@@ -1,17 +1,37 @@
-<article class="teacher">
-    <!-- El src realmente será el teacher.avatar -->
-    <img src="../../../assets/images/entrepreneur-593371_640.jpg" alt="Avatar">
-    <div class="cabecera-teacher">
-        <h4>{{teacher.name}}</h4>
-        <small>{{teacher.media_score}}⭐</small>
-    </div>
-    
-    <div class="tags">
+<nav class="container">
+    <div class="row">
         <ul>
-            <li>{{teacher.pricehour}} €/hora</li>
-            <li>Remote</li>
+            <li class="col">Main</li>
+            <li class="col">Mensajería</li>
+            <li class="col">Editar</li>
         </ul>
     </div>
+</nav>
+<article class="teacher container">
+    <div class="row">
+        <div class="col-8"><img src="../../../assets/images/entrepreneur-593371_640.jpg" alt="Avatar"></div>
+        <div class="col-4">
+            <h4>{{teacher.name}} {{teacher.surname}}</h4>
+            <small>Valoración: {{teacher.media_score}}⭐</small>
+            <div class="tags">
+                <ul>
+                    <li>{{teacher.pricehour}} €/hora</li>
+                    <li>Remote</li>
+                    <li>{{teacher.subject}}</li>
+                </ul>
+            </div>
+        </div>
+        <p><span>Descripción:<br></span> {{teacher.experience}}</p>
+    </div>  
+</article>
+<article class="opiniones container">
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="opinion">Alberto: Llevo enseñando alrededor de 10 años enseñando programación a gente muy paquete. Odio el tomato.Llevo enseñando alrededor de 10 años enseñando programación a gente muy paquete. Odio el tomatoLlevo enseñando alrededor de 10 años enseñando programación a gente muy paquete. Odio el tomato
+                </div>
 
-    <p><span>Descripción:</span> {{teacher.experience}}</p>
+            </article>
+        </div>
+    </div>
 </article>
