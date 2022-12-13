@@ -30,7 +30,7 @@
 </div>
 
 <section>
-    <article class="teachers" *ngFor="let teacher of arrTeachers" (click)="onNavigate(teacher.id)">
+    <article class="teachers" *ngFor="let teacher of arrTeachers" (click)="onNavigate(teacher.id!)">
         <!-- El src realmente será el teacher.avatar -->
 
         <div class="cabecera-teacher">
@@ -42,7 +42,7 @@
             <ul>
                 <li>{{teacher.pricehour}} €/hora</li>
                 <li>{{(teacher.remote === 1)? 'Remoto': 'Presencial'}}</li>
-                <li>{{teacher.subject}}</li>
+                <li>{{teacher.subjects}}</li>
             </ul>
         </div>
 

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { Subject } from '../interfaces/subject.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +12,15 @@ export class SubjectsService {
     this.baseUrl = 'http://localhost:3000/api/subjects';
   }
 
-  getAll() {
+  getAll(): Promise<Subject[]> {
     return firstValueFrom(
-      this.httpClient.get<any>(this.baseUrl)
+      this.httpClient.get<Subject[]>(this.baseUrl)
     )
   }
 
-  getSubjectsDistinct() {
+  getSubjectsDistinct(): Promise<Subject[]> {
     return firstValueFrom(
-      this.httpClient.get<any>(`${this.baseUrl}/distinct`)
+      this.httpClient.get<Subject[]>(`${this.baseUrl}/distinct`)
     )
   }
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'src/app/interfaces/subject.interface';
+import { Teacher } from 'src/app/interfaces/teacher.interface';
 import { SubjectsService } from 'src/app/services/subjects.service';
 import { TeachersService } from 'src/app/services/teachers.service';
 
@@ -17,12 +19,13 @@ export class TeacherListComponent {
   showScore: boolean
   showPrice: boolean
 
-  arrTeachers: any[]
-  arrSubjects: any[]
+  arrTeachers: Teacher[]
+  arrSubjects: Subject[]
 
   constructor(private teacherService: TeachersService, private subjectsService: SubjectsService, private router: Router) {
     this.arrTeachers = [];
     this.arrSubjects = [];
+
     this.price = 0;
     this.score = 0;
     this.asignatura = 'Asignatura'
@@ -50,7 +53,8 @@ export class TeacherListComponent {
 
   onSubmit() {
     /* Estos son los valores de los filtros, utilizar cunado se creen los filtros en el teacher.service*/
-    console.log(this.price, this.score, this.asignatura, this.city)
+    const filterData = { price: this.price, score: this.score, subject: this.asignatura, city: this.city }
+    console.log(filterData)
   }
 
   onNavigate(pId: number) {
