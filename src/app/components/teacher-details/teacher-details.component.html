@@ -1,7 +1,7 @@
 <nav class="container">
     <div class="row">
         <ul>
-            <li class="col">Main</li>
+            <li class="col">Perfil</li>
             <li class="col">Mensajería</li>
             <li class="col">Editar</li>
         </ul>
@@ -20,6 +20,7 @@
                     <li>{{teacher.subject}}</li>
                 </ul>
             </div>
+            <button class="btn btn-primary">Contactar</button>
         </div>
         <p><span>Descripción:<br></span> {{teacher.experience}}</p>
     </div>  
@@ -28,8 +29,11 @@
     <div class="row">
         <div class="col">
             <article>
-                <div class="opinion">Alberto: Llevo enseñando alrededor de 10 años enseñando programación a gente muy paquete. Odio el tomato.Llevo enseñando alrededor de 10 años enseñando programación a gente muy paquete. Odio el tomatoLlevo enseñando alrededor de 10 años enseñando programación a gente muy paquete. Odio el tomato
-                </div>
+                <div>OPINIONES<hr></div>
+                
+                <p class="opinion" *ngFor="let coment of coments">
+                    {{coment.name}} : {{coment.opinion}}
+                </p>
 
             </article>
         </div>

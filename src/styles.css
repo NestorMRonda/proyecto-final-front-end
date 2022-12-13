@@ -6,6 +6,7 @@
 
 
 
+
 :root {
     --fuenteprincipal: 'Montserrat', sans-serif;
     /*regla generic*/
@@ -19,6 +20,7 @@
     --Aguamarina: rgb(159, 255, 182);
     --Azul: rgb(159, 255, 231);
     --colorAyuda: rgb(95, 157, 79);
+    --fuentepizarra: 'Covered By Your Grace';
 }
 
 html,

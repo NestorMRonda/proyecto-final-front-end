@@ -9,8 +9,10 @@ import { TeachersService } from 'src/app/services/teachers.service';
 })
 export class TeacherDetailsComponent {
   teacher: any
+  coments: any
   constructor(private teachersService: TeachersService, private activatedRoute: ActivatedRoute) {
     this.teacher = {};
+    this.coments = [];
   }
 
 
@@ -21,6 +23,9 @@ export class TeacherDetailsComponent {
 
       this.teacher = await this.teachersService.getById(+params['teacherId'])
       console.log(this.teacher)
+
+      this.coments = await this.teachersService.getComents(+params['teacherId'])
+      console.log(this.coments)
     })
   }
 

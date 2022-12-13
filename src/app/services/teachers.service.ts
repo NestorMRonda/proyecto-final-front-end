@@ -26,4 +26,10 @@ export class TeachersService {
       this.httpClient.get<any>(`${this.baseUrl}/${pId}`)
     )
   }
+
+  getComents(pId: number) {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/${pId}/coments`)
+    )
+  }
 }
