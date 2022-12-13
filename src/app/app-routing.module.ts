@@ -5,6 +5,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { LoginComponent } from './components/login/login.component';
 import { StudentSingUpComponent } from './components/student-sing-up/student-sing-up.component';
 import { StudentsPrivateComponent } from './components/students-private/students-private.component';
+import { TeacherDetailNavbarComponent } from './components/teacher-detail-navbar/teacher-detail-navbar.component';
 import { TeacherDetailsComponent } from './components/teacher-details/teacher-details.component';
 import { TeacherListComponent } from './components/teacher-list/teacher-list.component';
 import { TeacherPrivateComponent } from './components/teacher-private/teacher-private.component';
@@ -20,8 +21,12 @@ const routes: Routes = [
   //rutas teachers
   { path: 'form/teacher', component: TeacherSingUpComponent },
   { path: 'list/teacher', component: TeacherListComponent },
-  { path: 'profile/teacher', component: TeacherPrivateComponent },
-  { path: 'teacher/:teacherId', component: TeacherDetailsComponent },
+  { path: 'profile/teacher', component: TeacherDetailNavbarComponent , 
+  children: [
+    {path:'profile/:teacherId', component:TeacherPrivateComponent}
+      ]
+  },
+  { path: 'teacher/:teacherId', component: TeacherDetailsComponent},
   { path: 'help', component: HelpComponent },
   { path: '**', redirectTo: 'home' }
 
