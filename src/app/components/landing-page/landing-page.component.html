@@ -60,7 +60,8 @@
                 <div class="tags">
                     <ul>
                         <li>{{teacher.pricehour}} €/hora</li>
-                        <li>Remote</li>
+                        <li>{{(teacher.remote === 1)? 'Remoto': 'Presencial'}}</li>
+                        <li>{{teacher.subject}}</li>
                     </ul>
                 </div>
 

@@ -26,4 +26,10 @@ export class TeachersService {
       this.httpClient.get<any>(`${this.baseUrl}/${pId}`)
     )
   }
+
+  sortByScore(pMin: number, pMax: number) {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/score`)
+    )
+  }
 }

@@ -35,6 +35,8 @@ export class TeacherListComponent {
 
   async ngOnInit() {
     this.arrTeachers = await this.teacherService.getAll()
+    this.arrTeachers.map(teacher => teacher.experience = teacher.experience.slice(0, 180) + '...')
+
     this.arrSubjects = await this.subjectsService.getAll()
   }
 
