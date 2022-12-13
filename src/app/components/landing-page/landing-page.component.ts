@@ -48,7 +48,7 @@ export class LandingPageComponent {
     for (let teacher of this.arrTeachers) {
       if (this.arrBestTeachers.length < 3) {
         /* Aquí el limitado a x caracteres */
-        teacher.experience = teacher.experience.slice(0, 380) + '...';
+        teacher.experience = teacher.experience.slice(0, 200) + '...';
         this.arrBestTeachers.push(teacher)
       }
     }
