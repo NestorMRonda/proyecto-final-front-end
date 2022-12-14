@@ -23,4 +23,10 @@ export class SubjectsService {
       this.httpClient.get<Subject[]>(`${this.baseUrl}/distinct`)
     )
   }
+
+  createTeacherSubject(pBody: any) {
+    return firstValueFrom(
+      this.httpClient.post<any>(`${this.baseUrl}/teachers`, pBody)
+    )
+  }
 }

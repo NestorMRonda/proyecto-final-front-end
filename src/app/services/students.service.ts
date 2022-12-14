@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { Student } from '../interfaces/student.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,12 @@ export class StudentsService {
 
   }
 
+
+  logIn(pBody: any) {
+    return firstValueFrom(
+      this.httpClient.post<any>(`${this.baseUrl}/login`, pBody)
+    )
+  }
 
 
 }

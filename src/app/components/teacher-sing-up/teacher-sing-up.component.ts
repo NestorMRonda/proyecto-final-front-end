@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SubjectsService } from 'src/app/services/subjects.service';
+import { TeachersService } from 'src/app/services/teachers.service';
 
 @Component({
   selector: 'app-teacher-sing-up',
@@ -14,7 +15,7 @@ export class TeacherSingUpComponent {
   emailRegExp: RegExp
   arrSubjects: any[]
 
-  constructor(private subjectService: SubjectsService) {
+  constructor(private subjectService: SubjectsService, private teacherService: TeachersService) {
 
     this.emailRegExp = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)
     this.regExp = new RegExp(/^(?=.*\d).{4,30}$/)
@@ -47,9 +48,34 @@ export class TeacherSingUpComponent {
     this.arrSubjects = await this.subjectService.getAll()
   }
 
-  onSubmit() {
+  async onSubmit() {
+    const formu = this.formulario.value
+    this.formulario.value.active = 1
     this.formulario.value.type = 'teacher'
+
+    const profe = {
+      name: formu.name,
+      surname: formu.surname,
+      birthdate: formu.birthdate,
+      email: formu.email,
+      password: formu.password,
+      phone: formu.phone,
+      avatar: formu.image,
+      type: formu.type,
+      experience: formu.experience,
+      pricehour: formu.pricehour,
+      address: formu.address,
+      active: true,
+      remote: formu.remote
+    }
+
     console.log(this.formulario.value)
+    await this.teacherService.register(profe)
+
+    /* Sacar el id del teacher por el email */
+    const teacherSubject = { user_email: formu.email, subject: formu.subject };
+    await this.subjectService.createTeacherSubject(teacherSubject);
+
     this.formulario.reset()
   }
 

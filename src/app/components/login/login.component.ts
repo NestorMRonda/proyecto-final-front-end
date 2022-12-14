@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { StudentsService } from 'src/app/services/students.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent {
 
   formulario: FormGroup;
 
-  constructor() {
+  constructor(private studentsService: StudentsService) {
     this.formulario = new FormGroup({
       email: new FormControl('pepito@gmail.com', [Validators.required]),
       password: new FormControl('test1234', [Validators.required])
@@ -19,8 +20,15 @@ export class LoginComponent {
 
   }
 
-  onSubmit() {
-    console.log(this.formulario.value)
+  async onSubmit() {
+    const response = await this.studentsService.logIn(this.formulario.value)
+    /* Response es un objeto con success y el token, el token hay que meterlo en el local storage, habría que meter el id en este objeto para hacer posteriormente el navigate en caso de que sea success */
+    if (response.success) {
+      alert('Enhorabuena')
+      /* Meter aquí navigate al perfil del alumno */
+    } else {
+      alert(response.fatal)
+    }
     this.formulario.reset()
   }
 

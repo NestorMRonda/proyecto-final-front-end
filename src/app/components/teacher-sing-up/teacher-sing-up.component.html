@@ -45,7 +45,7 @@
             <option [value]="subject.name" *ngFor="let subject of arrSubjects">{{subject.name}}</option>
         </select>
         <label for="floatingSelect">Elige la asignaturas que impartirás</label>
-        <small *ngIf="checkError('subject', 'required')" class="text-danger">Requerido</small>
+        <small *ngIf="checkError('subject', 'required')" class="text-danger not-margin">Requerido</small>
     </div>
 
     <div class="form-floating w-50 offset-3">
@@ -54,7 +54,7 @@
             <option [value]="subject.level" *ngFor="let subject of arrSubjectsDistinct">{{subject.level}}</option>
         </select>
         <label for="floatingSelect">Elige el nivel que impartiras</label>
-        <small *ngIf="checkError('level', 'required')" class="text-danger">Requerido</small>
+        <small *ngIf="checkError('level', 'required')" class="text-danger not-margin">Requerido</small>
     </div>
 
     <div class="container w-50 form-group my-2">

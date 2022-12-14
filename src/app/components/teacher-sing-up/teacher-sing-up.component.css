@@ -25,6 +25,10 @@ small {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+small.not-margin {
+    margin-left: 0%;
+}
+
 label {
     margin-top: 5px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;

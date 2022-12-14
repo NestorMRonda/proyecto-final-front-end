@@ -45,6 +45,11 @@ export class TeachersService {
     return firstValueFrom(
       this.httpClient.post<Teacher[]>(`${this.baseUrl}/filter`, pBody)
     )
+  }
 
+  register(pTeacher: Teacher) {
+    return firstValueFrom(
+      this.httpClient.post<Teacher>(`${this.baseUrl}/new`, pTeacher)
+    )
   }
 }
