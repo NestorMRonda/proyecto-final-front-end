@@ -16,13 +16,13 @@
     </div>
     <select [(ngModel)]="city">
         <!-- Aquí habrá que meter un ngfor recuperando todas las ciudades -->
-        <option value="Ciudad" selected disabled>Ciudad</option>
+        <option value="" selected>Ciudad</option>
         <option value="madrid">Madrid</option>
         <option value="barcelona">Barcelona</option>
         <option value="valencia">Valencia</option>
     </select>
     <select [(ngModel)]="asignatura">
-        <option value="Asignatura" selected disabled>Asignaturas</option>
+        <option value="" selected>Asignaturas</option>
         <option *ngFor="let subject of this.arrSubjects" [value]="subject.name">{{subject.name}}
         </option>
     </select>
@@ -30,7 +30,7 @@
 </div>
 
 <section>
-    <article class="teachers" *ngFor="let teacher of arrTeachers" (click)="onNavigate(teacher.id)">
+    <article class="teachers" *ngFor="let teacher of arrTeachers" (click)="onNavigate(teacher.id!)">
         <!-- El src realmente será el teacher.avatar -->
 
         <div class="cabecera-teacher">

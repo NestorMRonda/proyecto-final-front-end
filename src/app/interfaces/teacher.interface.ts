@@ -1,15 +1,20 @@
 export interface Teacher {
+    id?: number,
     name: string,
     surname: string,
     birthdate: Date,
     email: string,
     password: string,
     phone: string,
-    avatar: string,
+    avatar?: string,
     type: string,
     experience: string,
     pricehour: number,
-    address: string,
-    active: boolean //A lo mejor es number
-
+    address?: string,
+    active: boolean, //A lo mejor es number
+    media_score?: number,
+    subject: string,
+    remote?: number,
+    Lat?: number,
+    Long?: number,
 }

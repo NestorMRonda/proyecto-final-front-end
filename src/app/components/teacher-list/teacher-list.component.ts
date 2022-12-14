@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'src/app/interfaces/subject.interface';
+import { Teacher } from 'src/app/interfaces/teacher.interface';
 import { SubjectsService } from 'src/app/services/subjects.service';
 import { TeachersService } from 'src/app/services/teachers.service';
 
@@ -9,24 +11,23 @@ import { TeachersService } from 'src/app/services/teachers.service';
   styleUrls: ['./teacher-list.component.css']
 })
 export class TeacherListComponent {
-  price: number
-  score: number
+  price!: number
+  score!: number
   asignatura: string
   city: string
 
   showScore: boolean
   showPrice: boolean
 
-  arrTeachers: any[]
-  arrSubjects: any[]
+  arrTeachers: Teacher[]
+  arrSubjects: Subject[]
 
   constructor(private teacherService: TeachersService, private subjectsService: SubjectsService, private router: Router) {
     this.arrTeachers = [];
     this.arrSubjects = [];
-    this.price = 0;
-    this.score = 0;
-    this.asignatura = 'Asignatura'
-    this.city = 'Ciudad'
+
+    this.asignatura = ''
+    this.city = ''
 
     this.showPrice = false;
     this.showScore = false;
@@ -48,9 +49,11 @@ export class TeacherListComponent {
     this.showPrice = !this.showPrice;
   }
 
-  onSubmit() {
+  async onSubmit() {
     /* Estos son los valores de los filtros, utilizar cunado se creen los filtros en el teacher.service*/
-    console.log(this.price, this.score, this.asignatura, this.city)
+    const filterData = { price: this.price, score: this.score, subject: this.asignatura, city: this.city }
+    this.arrTeachers = await this.teacherService.filterTeacherList(filterData)
+    console.log(filterData)
   }
 
   onNavigate(pId: number) {

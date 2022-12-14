@@ -43,7 +43,7 @@ export class LandingPageComponent {
     //Petición back que devuelva aquellos profesores con mejor puntuación.
     // Hacerlo como slider
     //limitar el teacher.experience a 50 caracteres
-    this.arrTeachers = await this.teachersService.sortByScore(0, 10);
+    this.arrTeachers = await this.teachersService.sortByScore();
 
     for (let teacher of this.arrTeachers) {
       if (this.arrBestTeachers.length < 3) {
