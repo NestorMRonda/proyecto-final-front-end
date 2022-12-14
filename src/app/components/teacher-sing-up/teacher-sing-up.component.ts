@@ -27,7 +27,7 @@ export class TeacherSingUpComponent {
 
       name: new FormControl('', [Validators.required]),
       surname: new FormControl('Agudo', [Validators.required]),
-      birthdate: new FormControl(Date, [Validators.required]),
+      birthdate: new FormControl(null, [Validators.required]),
       email: new FormControl('pepito@gmail.com', [Validators.required, Validators.pattern(this.emailRegExp)]),
       password: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
       repitePassword: new FormControl('test1234', [Validators.required]),

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { StudentsService } from 'src/app/services/students.service';
 
 @Component({
   selector: 'app-student-sing-up',
@@ -12,7 +14,7 @@ export class StudentSingUpComponent {
   regExp: RegExp
   emailRegExp: RegExp
 
-  constructor() {
+  constructor(private studentService: StudentsService, private router: Router) {
 
     this.emailRegExp = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)
 
@@ -23,7 +25,7 @@ export class StudentSingUpComponent {
 
       name: new FormControl('', [Validators.required]),
       surname: new FormControl('Agudo', [Validators.required]),
-      birthdate: new FormControl(Date, [Validators.required]),
+      birthdate: new FormControl(null, [Validators.required]),
       email: new FormControl('pepito@gmail.com', [Validators.required, Validators.pattern(this.emailRegExp)]),
       password: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
       repitePassword: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
@@ -33,10 +35,27 @@ export class StudentSingUpComponent {
     }, [this.repitePasswordValidator])
   }
 
-  onSubmit() {
+  async onSubmit() {
     this.formulario.value.type = 'user'
-    console.log(this.formulario.value)
-    this.formulario.reset()
+
+    const formu = this.formulario.value
+    const student = {
+      name: formu.name,
+      surname: formu.surname,
+      birthdate: formu.birthdate,
+      email: formu.email,
+      password: formu.password,
+      phone: formu.phone,
+      avatar: formu.image,
+      type: formu.type
+    }
+
+    const user = await this.studentService.register(student)
+    if (user) {
+      this.router.navigate(['/home'])
+      this.formulario.reset()
+    }
+
   }
 
   checkError(campo: string, error: string): boolean | undefined {

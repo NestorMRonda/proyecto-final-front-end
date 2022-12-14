@@ -16,9 +16,15 @@ export class StudentsService {
   }
 
 
-  logIn(pBody: any) {
+  logIn(pBody: any): Promise<any> {
     return firstValueFrom(
       this.httpClient.post<any>(`${this.baseUrl}/login`, pBody)
+    )
+  }
+
+  register(pBody: Student): Promise<Student> {
+    return firstValueFrom(
+      this.httpClient.post<Student>(`${this.baseUrl}/new`, pBody)
     )
   }
 
