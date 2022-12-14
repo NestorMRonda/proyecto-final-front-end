@@ -4,18 +4,6 @@ div.cabecera {
     height: 100vh;
 }
 
-div.whiteboard {
-    background-image: url('../../../assets/images/pizarra.png');
-    height: 425px;
-    width: 600px;
-    background-size: cover;
-    position: absolute;
-    right: 0%;
-    top: 20%;
-    border-radius: 5px;
-}
-
-
 div.posit {
     background-image: url('../../../assets/images/Buscador2.png');
     height: 150px;
@@ -46,16 +34,26 @@ div.notebook {
     top: 3%;
 }
 
-ul.opiniones {
+div.whiteboard {
+    background-image: url('../../../assets/images/pizarra.png');
+    height: 425px;
+    width: 600px;
+    background-size: cover;
     position: absolute;
-    top: 25%;
+    right: 0%;
+    top: 20%;
+    border-radius: 5px;
+}
+
+ul.opiniones {
+    padding: 2em ;
+    padding-top: 1em;
     list-style: circle;
-    right: 1%;
     color: white;
     font-size: 1.3em;
     line-height: 1.8em;
     font-family: 'Covered By Your Grace';
-    width: 36%;
+    width: 100%;
 }
 
 ul.opiniones span {
