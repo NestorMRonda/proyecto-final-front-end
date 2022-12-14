@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HelpComponent } from './components/help/help.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginComponent } from './components/login/login.component';
+import { StudentDetailNavbarComponent } from './components/student-detail-navbar/student-detail-navbar.component';
 import { StudentSingUpComponent } from './components/student-sing-up/student-sing-up.component';
 import { StudentsPrivateComponent } from './components/students-private/students-private.component';
 import { TeacherDetailEditprofileComponent } from './components/teacher-detail-editprofile/teacher-detail-editprofile.component';
@@ -18,7 +19,11 @@ const routes: Routes = [
   { path: 'home', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'form/students', component: StudentSingUpComponent },
-  { path: 'profile/students', component: StudentsPrivateComponent },
+  { path: 'profile/students', component: StudentDetailNavbarComponent ,
+  children:[
+    {path: 'profile/:studentId', component:StudentsPrivateComponent}
+  ]
+  },
   //rutas teachers
   { path: 'form/teacher', component: TeacherSingUpComponent },
   { path: 'list/teacher', component: TeacherListComponent },

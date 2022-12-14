@@ -1,16 +1,13 @@
-/* OJO TENER EN CUENTA QUE VIENE DE "PROFES"*/
-
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { TeachersService } from 'src/app/services/teachers.service';
 
 @Component({
-  selector: 'app-teacher-detail-navbar',
-  templateUrl: './teacher-detail-navbar.component.html',
-  styleUrls: ['./teacher-detail-navbar.component.css']
+  selector: 'app-student-detail-navbar',
+  templateUrl: './student-detail-navbar.component.html',
+  styleUrls: ['./student-detail-navbar.component.css']
 })
-export class TeacherDetailNavbarComponent {
-  
+export class StudentDetailNavbarComponent {
   teacher: any;
 
   constructor(
@@ -29,8 +26,4 @@ export class TeacherDetailNavbarComponent {
       console.log(this.teacher)
     })
   } 
-
-
-  
-
 }

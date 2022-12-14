@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TeacherDetailNavbarComponent } from './components/teacher-detail-navbar/teacher-detail-navbar.component';
 import { TeacherDetailEditprofileComponent } from './components/teacher-detail-editprofile/teacher-detail-editprofile.component';
+import { StudentDetailNavbarComponent } from './components/student-detail-navbar/student-detail-navbar.component';
+import { StudentDetailEditprofileComponent } from './components/student-detail-editprofile/student-detail-editprofile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { TeacherDetailEditprofileComponent } from './components/teacher-detail-e
     LandingPageComponent,
     HelpComponent,
     TeacherDetailNavbarComponent,
-    TeacherDetailEditprofileComponent
+    TeacherDetailEditprofileComponent,
+    StudentDetailNavbarComponent,
+    StudentDetailEditprofileComponent
   ],
   imports: [
     BrowserModule,

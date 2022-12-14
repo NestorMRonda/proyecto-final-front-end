@@ -10,7 +10,7 @@ export class StudentsService {
   baseUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = ''
+    this.baseUrl = 'http://localhost:3000/api/users'
 
   }
 
