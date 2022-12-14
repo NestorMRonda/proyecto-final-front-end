@@ -13,7 +13,7 @@ export interface Teacher {
     address?: string,
     active: boolean, //A lo mejor es number
     media_score?: number,
-    subjects: string,
+    subject: string,
     remote?: number,
     Lat?: number,
     Long?: number,

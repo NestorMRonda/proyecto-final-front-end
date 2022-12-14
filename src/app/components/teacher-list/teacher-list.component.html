@@ -16,13 +16,13 @@
     </div>
     <select [(ngModel)]="city">
         <!-- Aquí habrá que meter un ngfor recuperando todas las ciudades -->
-        <option value="Ciudad" selected disabled>Ciudad</option>
+        <option value="" selected>Ciudad</option>
         <option value="madrid">Madrid</option>
         <option value="barcelona">Barcelona</option>
         <option value="valencia">Valencia</option>
     </select>
     <select [(ngModel)]="asignatura">
-        <option value="Asignatura" selected disabled>Asignaturas</option>
+        <option value="" selected>Asignaturas</option>
         <option *ngFor="let subject of this.arrSubjects" [value]="subject.name">{{subject.name}}
         </option>
     </select>
@@ -42,7 +42,7 @@
             <ul>
                 <li>{{teacher.pricehour}} €/hora</li>
                 <li>{{(teacher.remote === 1)? 'Remoto': 'Presencial'}}</li>
-                <li>{{teacher.subjects}}</li>
+                <li>{{teacher.subject}}</li>
             </ul>
         </div>
 

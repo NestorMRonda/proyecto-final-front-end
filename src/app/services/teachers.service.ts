@@ -40,4 +40,11 @@ export class TeachersService {
       this.httpClient.get<Teacher[]>(`${this.baseUrl}/score`)
     )
   }
+
+  filterTeacherList(pBody: any) {
+    return firstValueFrom(
+      this.httpClient.post<Teacher[]>(`${this.baseUrl}/filter`, pBody)
+    )
+
+  }
 }
