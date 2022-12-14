@@ -26,10 +26,15 @@
         <option *ngFor="let subject of this.arrSubjects" [value]="subject.name">{{subject.name}}
         </option>
     </select>
+    <div class="check">
+        <input type="checkbox" class="mx-2" [(ngModel)]="remote">
+        <label>Remoto</label>
+    </div>
     <button class="apply" value="" (click)="onSubmit()">Aplicar</button>
 </div>
 
 <section>
+    <h4 *ngIf="this.arrTeachers.length === 0">Oh vaya, parece que esto está vacío😥</h4>
     <article class="teachers" *ngFor="let teacher of arrTeachers" (click)="onNavigate(teacher.id!)">
         <!-- El src realmente será el teacher.avatar -->
 
