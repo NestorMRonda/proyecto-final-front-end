@@ -15,6 +15,7 @@ import { HelpComponent } from './components/help/help.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TeacherDetailNavbarComponent } from './components/teacher-detail-navbar/teacher-detail-navbar.component';
+import { TeacherDetailEditprofileComponent } from './components/teacher-detail-editprofile/teacher-detail-editprofile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TeacherDetailNavbarComponent } from './components/teacher-detail-navbar
     TeacherDetailsComponent,
     LandingPageComponent,
     HelpComponent,
-    TeacherDetailNavbarComponent
+    TeacherDetailNavbarComponent,
+    TeacherDetailEditprofileComponent
   ],
   imports: [
     BrowserModule,
