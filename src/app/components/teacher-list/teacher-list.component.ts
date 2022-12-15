@@ -42,12 +42,11 @@ export class TeacherListComponent {
       console.log()
       const filterData = { price: this.price, score: this.score, subject: params['subject'], city: params['city'], remote: (params['remote'] === "true") ? true : false }
       console.log(filterData)
+
       this.arrTeachers = await this.teacherService.filterTeacherList(filterData)
+      this.arrTeachers.map(teacher => teacher.experience = teacher.experience.slice(0, 80) + '...')
 
     })
-    /* if (this.arrTeachers.length === 0) this.arrTeachers = await this.teacherService.getAll() */
-
-    this.arrTeachers.map(teacher => teacher.experience = teacher.experience.slice(0, 180) + '...')
 
     this.arrSubjects = await this.subjectsService.getAll()
   }
