@@ -20,7 +20,6 @@ export class TeacherSingUpComponent {
     this.emailRegExp = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)
     this.regExp = new RegExp(/^(?=.*\d).{4,30}$/)
 
-    this.file = new FormData()
     this.arrSubjects = []
     this.arrSubjectsDistinct = []
 
@@ -68,21 +67,21 @@ export class TeacherSingUpComponent {
     fd.append('active', "1")
     fd.append('remote', formu.remote)
 
-    const profe = {
-      name: formu.name,
-      surname: formu.surname,
-      birthdate: formu.birthdate,
-      email: formu.email,
-      password: formu.password,
-      phone: formu.phone,
-      avatar: formu.image,
-      type: formu.type,
-      experience: formu.experience,
-      pricehour: formu.pricehour,
-      address: formu.address,
-      active: true,
-      remote: formu.remote
-    }
+    /*     const profe = {
+          name: formu.name,
+          surname: formu.surname,
+          birthdate: formu.birthdate,
+          email: formu.email,
+          password: formu.password,
+          phone: formu.phone,
+          avatar: formu.image,
+          type: formu.type,
+          experience: formu.experience,
+          pricehour: formu.pricehour,
+          address: formu.address,
+          active: true,
+          remote: formu.remote
+        } */
 
     await this.teacherService.register(fd)
 
