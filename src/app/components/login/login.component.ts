@@ -14,6 +14,7 @@ export class LoginComponent {
   formulario: FormGroup;
   token: string;
 
+
   constructor(private studentsService: StudentsService, private router: Router) {
     this.formulario = new FormGroup({
       email: new FormControl('pepito@gmail.com', [Validators.required]),
@@ -27,6 +28,7 @@ export class LoginComponent {
   async onSubmit() {
     const response = await this.studentsService.logIn(this.formulario.value)
     /* Response es un objeto con success y el token, el token hay que meterlo en el local storage, habría que meter el id en este objeto para hacer posteriormente el navigate en caso de que sea success */
+    
     if (response.success) {
       Swal.fire({
         position: 'center',
@@ -35,9 +37,21 @@ export class LoginComponent {
         showConfirmButton: false,
         timer: 1500
       })
+      const user = await this.studentsService.getStudentByEmail(this.formulario.value.email)
       this.token = response.token
-      console.log(this.formulario.value)
-      /* Meter aquí navigate al perfil del alumno */
+      console.log(user)
+      if (user.type === "user"){
+        this.router.navigate([`/profile/students/profile/${user.id}`])
+      }
+      if (user.type === "teacher"){
+        this.router.navigate([`/profile/teacher/profile/${user.id}`])
+      }
+      /* if (user.type === "admin"){
+        this.router.navigate([`/profile/admin/profile/${user.id}`])
+      } */
+      
+      
+      
     } else {
       Swal.fire({
         position: 'center',
