@@ -15,6 +15,6 @@ export interface Teacher {
     media_score?: number,
     subject?: string,
     remote?: number,
-    Lat?: number,
-    Long?: number,
+    lat?: number,
+    long?: number,
 }

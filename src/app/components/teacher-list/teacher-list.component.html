@@ -14,13 +14,8 @@
             <p> Puntuación mínima: {{score}} / 10</p>
         </div>
     </div>
-    <select [(ngModel)]="city">
-        <!-- Aquí habrá que meter un ngfor recuperando todas las ciudades -->
-        <option value="" selected>Ciudad</option>
-        <option value="madrid">Madrid</option>
-        <option value="barcelona">Barcelona</option>
-        <option value="valencia">Valencia</option>
-    </select>
+
+    <input #inputPlaces class="mapa" type="text" [(ngModel)]="city" placeholder="Ubicación">
     <select [(ngModel)]="asignatura">
         <option value="" selected>Asignaturas</option>
         <option *ngFor="let subject of this.arrSubjects" [value]="subject.name">{{subject.name}}
@@ -33,7 +28,26 @@
     <button class="apply" value="" (click)="onSubmit()">Aplicar</button>
 </div>
 
-<div class="mapa" #divMapa></div>
+<div class="flex-map">
+    <div class="iconos-google">
+        <figure><img
+                src="https://imgs.search.brave.com/EpU5KjrQ15WVBGBHq0zUJiyg5q4LAFAubO2QFMIOmS8/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9jZG4u/aWNvbi1pY29ucy5j/b20vaWNvbnMyLzI2/MzEvUE5HLzUxMi9n/b29nbGVfbWFwc19u/ZXdfbG9nb19pY29u/XzE1OTE0Ny5wbmc"
+                alt="Icono google maps">
+            <p>Lo que buscas 🔍</p>
+        </figure>
+        <figure><img
+                src="https://imgs.search.brave.com/eaL74z0xZyWFghCrbjVzxh4XOAKm5U-TyZR_6-VtfTM/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/cGlrcG5nLmNvbS9w/bmdsL2IvNDE2LTQx/NjUwMDNfaWNvbi1n/b29nbGUtbWFwLWJs/dWUtcGluLWNsaXBh/cnQucG5n"
+                alt="Icono google maps">
+            <p>Profesores cerca 👨‍🏫</p>
+        </figure>
+        <figure><img
+                src="https://imgs.search.brave.com/eDYxhbLNCWdsVe2T6R11ALuU4AWVILFh24THOv0ZE78/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9sYWtl/bGFuZGVzY2FwZXJv/b20uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE5LzExL2dv/b2dsZS1tYXAtaWNv/bi10cmFuc3BhcmVu/dC0xOS5wbmc"
+                alt="Icono google maps">
+            <p>Tú posición 📌</p>
+        </figure>
+    </div>
+    <div class="mapa" #divMapa></div>
+</div>
 
 <section>
     <h4 *ngIf="this.arrTeachers.length === 0">Oh vaya, parece que esto está vacío😥</h4>

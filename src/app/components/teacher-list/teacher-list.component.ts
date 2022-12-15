@@ -53,8 +53,6 @@ export class TeacherListComponent {
 
     this.url = ""
 
-
-
   }
 
   async ngOnInit() {
@@ -63,7 +61,22 @@ export class TeacherListComponent {
       const filterData = { price: this.price, score: this.score, subject: params['subject'], city: params['city'], remote: (params['remote'] === "true") ? true : false }
       this.arrTeachers = await this.teacherService.filterTeacherList(filterData)
       this.arrTeachers.map(teacher => teacher.experience = teacher.experience.slice(0, 180) + '...')
-      this.arrTeachers.map(teacher => { teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`; console.log(teacher.avatar) })
+      this.arrTeachers.map(teacher => { teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`; })
+
+      if (this.arrTeachers) {
+        for (let teacher of await this.teacherService.getAll()) {
+          const Position = new google.maps.LatLng(teacher.lat!, teacher.long!)
+          const marker = new google.maps.Marker({
+            position: Position,
+            map: this.mapa,
+            animation: google.maps.Animation.BOUNCE,
+            icon: {
+              url: 'https://imgs.search.brave.com/eaL74z0xZyWFghCrbjVzxh4XOAKm5U-TyZR_6-VtfTM/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/cGlrcG5nLmNvbS9w/bmdsL2IvNDE2LTQx/NjUwMDNfaWNvbi1n/b29nbGUtbWFwLWJs/dWUtcGluLWNsaXBh/cnQucG5n',
+              scaledSize: new google.maps.Size(25, 25)
+            }
+          })
+        }
+      }
     })
 
     this.arrSubjects = await this.subjectsService.getAll()
@@ -90,6 +103,20 @@ export class TeacherListComponent {
   ngAfterViewInit() {
     //Haremos que se cargue aquí el mapa ya que este método se ejecuta cuando ya se ha cargado todo el componente, algo imprescindible para los mapas.
     this.loadMap()
+    this.loadAutocomplete()
+  }
+
+
+  markerMaker(position: google.maps.LatLng, mapa: google.maps.Map, animacion: google.maps.Animation): google.maps.Marker {
+    return new google.maps.Marker({
+      position, //Esto realmente es position: position, pero como la clave y el valor del objeto son lo mismo podemos poner solo la clave.
+      map: mapa,
+      animation: animacion,
+      icon: {
+        url: 'https://imgs.search.brave.com/EpU5KjrQ15WVBGBHq0zUJiyg5q4LAFAubO2QFMIOmS8/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9jZG4u/aWNvbi1pY29ucy5j/b20vaWNvbnMyLzI2/MzEvUE5HLzUxMi9n/b29nbGVfbWFwc19u/ZXdfbG9nb19pY29u/XzE1OTE0Ny5wbmc',
+        scaledSize: new google.maps.Size(40, 40)
+      }
+    })
   }
 
   changeDisplayScore() {
@@ -116,15 +143,30 @@ export class TeacherListComponent {
     // Creacion del mapa
     // Opciones de creación
     const options = {
-      /* Las claves tienen que ser esas, es lo que especifica la API de google maps */
-      //latitud y longitud
-      // te acerco o aleja lo que ves en el mapa
-      zoom: 19,
+
+      zoom: 14,
       // El tipo de mapa que se muestra
       mapTypeId: google.maps.MapTypeId.TERRAIN
     }
     //Incluimos mapa dentro del div, y options le da las características
     this.mapa = new google.maps.Map(this.divMapa.nativeElement, options)
+  }
+
+  loadAutocomplete(): void {
+    //Al trabajar con ViewChild al poner el inputPlaces para capturar el elemento propio necesitamos la propiedad nativeElement, y ahora si le podemos poner el .value.....
+
+    const autocomplete = new google.maps.places.Autocomplete(this.inputPlaces.nativeElement,)
+    //El Autocomplete hace que aparezca una preview de la calle para que el usuario seleccione la correcta, el tipico autocompletado.
+
+    //place_changed es el evento que nos permite cambiar el lugar que se muestra en el mapa
+    google.maps.event.addListener(autocomplete, 'place_changed', (event) => {
+      const place = autocomplete.getPlace()
+      console.log(place.geometry!.location)
+      console.log(place.geometry!.location.lat)
+      this.mapa.setCenter(place.geometry!.location)
+      const marker = this.markerMaker(place.geometry!.location, this.mapa, google.maps.Animation.DROP)
+      marker.setAnimation(google.maps.Animation.BOUNCE)
+    })
   }
 
 }

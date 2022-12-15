@@ -46,7 +46,7 @@ div.whiteboard {
 }
 
 ul.opiniones {
-    padding: 2em ;
+    padding: 2em;
     padding-top: 1em;
     list-style: circle;
     color: white;
@@ -99,38 +99,27 @@ form.busqueda div.asignaturas select option:hover {
 }
 
 
-form.busqueda div.ciudad select {
+form.busqueda div.ciudad input {
     position: absolute;
-    top: 56%;
-    right: 22%;
+    top: 57%;
+    right: 12%;
     transform: rotateZ(15deg);
     background: none;
     border-radius: 10px;
     border: 2px solid black;
     height: 30px;
-    width: 150px;
+    width: 210px;
     font-family: 'Covered By Your Grace';
     font-size: 1.2em;
     cursor: pointer;
     transition: .6s;
 }
 
-form.busqueda div.ciudad select:hover {
+form.busqueda div.ciudad input:hover {
     background-color: black;
     color: white;
 }
 
-form.busqueda div.ciudad select option {
-    background-color: white;
-    font-family: 'Covered By Your Grace', Verdana, Geneva, Tahoma, sans-serif;
-    border-radius: 5px;
-    color: black;
-}
-
-form.busqueda div.ciudad select option:hover {
-    background-color: black;
-    color: white;
-}
 
 form.busqueda div.remote input {
     position: absolute;

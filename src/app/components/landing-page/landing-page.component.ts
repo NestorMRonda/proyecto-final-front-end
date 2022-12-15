@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SubjectsService } from 'src/app/services/subjects.service';
@@ -19,6 +19,8 @@ export class LandingPageComponent {
   url: string;
 
   formulario: FormGroup
+
+  @ViewChild('inputPlaces') inputPlaces!: ElementRef;
   constructor(private subjectService: SubjectsService, private teachersService: TeachersService, private router: Router) {
     this.arrBestSubjects = [];
     this.arrSubjects = [];
@@ -31,7 +33,7 @@ export class LandingPageComponent {
       remote: new FormControl(false)
     })
 
-    this.url="";
+    this.url = "";
   }
 
   async ngOnInit() {
@@ -53,7 +55,7 @@ export class LandingPageComponent {
         /* Aquí el limitado a x caracteres */
         teacher.experience = teacher.experience.slice(0, 200) + '...';
         this.arrBestTeachers.push(teacher)
-        this.arrBestTeachers.map(teacher =>{ teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`;})
+        this.arrBestTeachers.map(teacher => { teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`; })
       }
     }
   }
@@ -72,6 +74,15 @@ export class LandingPageComponent {
 
   onNavigate(pId: number): void {
     this.router.navigate(['/teacher', pId])
+  }
+
+  ngAfterViewInit() {
+    this.loadAutocomplete()
+  }
+
+  loadAutocomplete() {
+    const autocomplete = new google.maps.places.Autocomplete(this.inputPlaces.nativeElement,)
+
   }
 }
 

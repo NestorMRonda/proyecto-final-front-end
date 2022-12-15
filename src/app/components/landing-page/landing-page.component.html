@@ -12,12 +12,7 @@
                         </select>
                     </div>
                     <div class="ciudad">
-                        <select formControlName="city">
-                            <option value="" selected disabled>Ciudad</option>
-                            <option value="madrid">Madrid</option>
-                            <option value="barcelona">Barcelona</option>
-                            <option value="valencia">Valencia</option>
-                        </select>
+                        <input #inputPlaces type="text" formControlName="city" placeholder="Ubicación">
                     </div>
                     <div class="remote">
                         <input formControlName="remote" type="checkbox">

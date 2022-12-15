@@ -155,6 +155,63 @@ div.check input {
     cursor: pointer;
 }
 
+
+
+
+
+div input.mapa {
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    border: 2px solid var(--colorsecundario);
+    text-shadow: 1px 1px 2px black;
+    cursor: pointer;
+    transition: .6s;
+    margin: 5px;
+}
+
+div.flex-map {
+    margin-top: 80px;
+    display: flex;
+    position: relative;
+}
+
+div div.iconos-google {
+    position: absolute;
+    left: 13%;
+}
+
+
+div figure img {
+    width: 20px;
+    height: 25px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+div figure p {
+    margin-top: 5px;
+}
+
+div figure:first-of-type img {
+    width: 30px;
+    height: 30px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+div figure {
+    margin: 10px;
+    display: flex;
+    font-family: var(--fuenteprincipal);
+}
+
+
+
+
 button {
     width: 140px;
     height: 35px;
