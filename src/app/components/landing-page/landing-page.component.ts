@@ -27,7 +27,7 @@ export class LandingPageComponent {
     this.formulario = new FormGroup({
       subject: new FormControl(''),
       city: new FormControl(''),
-      remote: new FormControl('')
+      remote: new FormControl(false)
     })
   }
 
@@ -56,12 +56,17 @@ export class LandingPageComponent {
 
 
   onSubmit() {
-
-    console.log(this.formulario.value)
-    this.router.navigate(['/list', 'teacher'])
+    const formu = this.formulario.value
+    this.router.navigate(['/list', 'teacher'], {
+      queryParams: {
+        subject: formu.subject,
+        city: formu.city,
+        remote: formu.remote
+      }
+    })
   }
 
-  onNavigate(pId: number) {
+  onNavigate(pId: number): void {
     this.router.navigate(['/teacher', pId])
   }
 }

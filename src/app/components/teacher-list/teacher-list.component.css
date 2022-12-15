@@ -35,9 +35,15 @@ article.teachers img {
     transition: 1s;
 }
 
+section h4 {
+    font-family: var(--fuenteprincipal);
+    font-size: 2em;
+}
+
 article.teachers h4 {
     font-weight: bold;
     padding: 10px;
+    font-family: var(--fuenteprincipal);
 }
 
 article.teachers p {
@@ -131,6 +137,21 @@ div.score-filter {
 }
 
 div.score-filter input {
+    cursor: pointer;
+}
+
+div.check {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    font-size: 1.2em;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px black;
+}
+
+div.check input {
+    height: 25px;
+    width: 25px;
     cursor: pointer;
 }
 

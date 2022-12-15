@@ -1,4 +1,5 @@
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-group container">
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" method="post" enctype="multipart/form-data"
+    class="form-group container">
     <!-- Solucionar lo de los borders, también en el login -->
     <div class="d-flex offset-3 w-50 justify-content-around">
         <div class="my-2">
@@ -42,7 +43,7 @@
     <div class="container w-50 form-group my-2">
         <label class="label my-2">Imagen avatar</label>
         <!--El tipo de la imágen tiene que ser file -->
-        <input type="file" class="form-control" name="image" formControlName="image">
+        <input type="file" class="form-control" name="avatar" (change)="onChange($event)">
     </div>
     <div>
         <input [disabled]="!formulario.valid" [ngClass]="{'blocked': !formulario.valid}"

@@ -13,6 +13,7 @@ export class StudentSingUpComponent {
   formulario: FormGroup
   regExp: RegExp
   emailRegExp: RegExp
+  file: any
 
   constructor(private studentService: StudentsService, private router: Router) {
 
@@ -36,9 +37,18 @@ export class StudentSingUpComponent {
   }
 
   async onSubmit() {
-    this.formulario.value.type = 'user'
-
     const formu = this.formulario.value
+    formu.type = 'user'
+    let fd = new FormData();
+    fd.append('avatar', this.file[0]);
+    fd.append('name', formu.name)
+    fd.append('surname', formu.surname)
+    fd.append('birthdate', formu.birthdate)
+    fd.append('email', formu.email)
+    fd.append('password', formu.password)
+    fd.append('phone', formu.phone)
+    fd.append('type', formu.type)
+
     const student = {
       name: formu.name,
       surname: formu.surname,
@@ -50,9 +60,9 @@ export class StudentSingUpComponent {
       type: formu.type
     }
 
-    const user = await this.studentService.register(student)
+    const user = await this.studentService.register(fd)
     if (user) {
-      this.router.navigate(['/home'])
+      this.router.navigate(['/login'])
       this.formulario.reset()
     }
 
@@ -74,5 +84,9 @@ export class StudentSingUpComponent {
       form.get('repitePassword')?.setErrors({ repitepasswordvalidator: true });
       return { repitepasswordvalidator: true }
     }
+  }
+
+  onChange($event: any) {
+    this.file = $event.target.files
   }
 }

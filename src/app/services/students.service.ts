@@ -22,9 +22,9 @@ export class StudentsService {
     )
   }
 
-  register(pBody: Student): Promise<Student> {
+  register(pBody: any): Promise<any> {
     return firstValueFrom(
-      this.httpClient.post<Student>(`${this.baseUrl}/new`, pBody)
+      this.httpClient.post<any>(`${this.baseUrl}/new`, pBody)
     )
   }
 
