@@ -47,9 +47,9 @@ export class TeachersService {
     )
   }
 
-  register(pTeacher: Teacher) {
+  register(pTeacher: any) {
     return firstValueFrom(
-      this.httpClient.post<Teacher>(`${this.baseUrl}/new`, pTeacher)
+      this.httpClient.post<any>(`${this.baseUrl}/new`, pTeacher)
     )
   }
 }
