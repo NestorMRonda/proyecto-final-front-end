@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'list/teacher', component: TeacherListComponent },
   { path: 'profile/teacher', component: TeacherDetailNavbarComponent , 
   children: [
-    {path:'profile/:teacherId', component:TeacherPrivateComponent},
+    {path:'profile/:teacherId', component:TeacherDetailsComponent},
     {path: 'edit', component:TeacherDetailEditprofileComponent}
       ]
   },

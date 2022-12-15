@@ -1,14 +1,14 @@
 <article class="teacher container">
     <div class="row">
-        <div class="col-8"><img src="../../../assets/images/entrepreneur-593371_640.jpg" alt="Avatar"></div>
+        <div class="col-8"><img [src]="this.url"></div>
         <div class="col-4">
             <h4>{{teacher.name}} {{teacher.surname}}</h4>
             <small>Valoración: {{teacher.media_score}}⭐</small>
             <div class="tags">
                 <ul>
                     <li>{{teacher.pricehour}} €/hora</li>
-                    <li>Remote</li>
-                    <li>{{teacher.subject}}</li>
+                    <li *ngIf="teacher.remote===1">Remote</li>
+                    <li *ngIf="teacher.subject!==null">{{teacher.subject}}</li>
                 </ul>
             </div>
             <button class="btn btn-primary">Contactar</button>
