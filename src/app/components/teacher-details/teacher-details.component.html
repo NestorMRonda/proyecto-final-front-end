@@ -7,7 +7,7 @@
             <div class="tags">
                 <ul>
                     <li>{{teacher.pricehour}} €/hora</li>
-                    <li *ngIf="teacher.remote===1">Remote</li>
+                    <li >{{(teacher.remote === 1)? 'Remoto': 'Presencial'}}</li>
                     <li *ngIf="teacher.subject!==null">{{teacher.subject}}</li>
                 </ul>
             </div>

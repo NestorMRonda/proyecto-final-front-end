@@ -16,6 +16,7 @@ export class LandingPageComponent {
 
   arrTeachers: any[];
   arrBestTeachers: any[];
+  url: string;
 
   formulario: FormGroup
   constructor(private subjectService: SubjectsService, private teachersService: TeachersService, private router: Router) {
@@ -29,6 +30,8 @@ export class LandingPageComponent {
       city: new FormControl(''),
       remote: new FormControl(false)
     })
+
+    this.url="";
   }
 
   async ngOnInit() {
@@ -50,6 +53,7 @@ export class LandingPageComponent {
         /* Aquí el limitado a x caracteres */
         teacher.experience = teacher.experience.slice(0, 200) + '...';
         this.arrBestTeachers.push(teacher)
+        this.arrBestTeachers.map(teacher =>{ teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`;})
       }
     }
   }

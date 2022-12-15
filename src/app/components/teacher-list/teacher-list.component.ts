@@ -23,6 +23,8 @@ export class TeacherListComponent {
   arrTeachers: Teacher[]
   arrSubjects: Subject[]
 
+  url: string;
+
   constructor(private teacherService: TeachersService, private subjectsService: SubjectsService, private router: Router, private activatedRouter: ActivatedRoute) {
     this.arrTeachers = [];
     this.arrSubjects = [];
@@ -34,20 +36,20 @@ export class TeacherListComponent {
     this.showPrice = false;
     this.showScore = false;
 
+    this.url=""
+
   }
 
   async ngOnInit() {
 
     this.activatedRouter.queryParams.subscribe(async (params) => {
-      console.log()
       const filterData = { price: this.price, score: this.score, subject: params['subject'], city: params['city'], remote: (params['remote'] === "true") ? true : false }
-      console.log(filterData)
       this.arrTeachers = await this.teacherService.filterTeacherList(filterData)
-
+      this.arrTeachers.map(teacher => teacher.experience = teacher.experience.slice(0, 180) + '...')
+      this.arrTeachers.map(teacher =>{ teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`; console.log(teacher.avatar)})
     })
     /* if (this.arrTeachers.length === 0) this.arrTeachers = await this.teacherService.getAll() */
-
-    this.arrTeachers.map(teacher => teacher.experience = teacher.experience.slice(0, 180) + '...')
+    
 
     this.arrSubjects = await this.subjectsService.getAll()
   }
