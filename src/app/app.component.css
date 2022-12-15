@@ -58,7 +58,7 @@ header figure {
 header figure img {
     width: 15em;
     height: 8em;
-    margin-top: -100px;
+    margin-top: -150px;
     transition: 1s;
     cursor: pointer;
 }

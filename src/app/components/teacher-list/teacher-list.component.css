@@ -207,3 +207,10 @@ button.apply:hover {
     height: 55px;
     font-size: 1.3em;
 }
+
+div.mapa {
+    height: 400px;
+    width: 600px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
