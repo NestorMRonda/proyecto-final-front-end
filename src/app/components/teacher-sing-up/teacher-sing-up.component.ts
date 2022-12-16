@@ -34,8 +34,8 @@ export class TeacherSingUpComponent {
       password: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
       repitePassword: new FormControl('test1234', [Validators.required]),
       phone: new FormControl('655875404', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
-      subject: new FormControl('Matematicas', [Validators.required]),
-      level: new FormControl('ESO', [Validators.required]),
+      subject: new FormControl(null, [Validators.required]),
+      level: new FormControl(null, [Validators.required]),
       experience: new FormControl('Haré lo que pueda y más de lo que pueda si es posible y haré lo posible, incluso lo imposible, si es que eso también es posible.'),
       pricehour: new FormControl(14, [Validators.required]),
       address: new FormControl(''),
@@ -59,6 +59,7 @@ export class TeacherSingUpComponent {
     formu.active = 1;
     formu.type = 'teacher';
     formu.address = this.inputPlaces.nativeElement.value //Mete el valor del autocomplete en el formu.address para pasarselo a la base de datos.
+
 
     let fd = new FormData();
     fd.append('avatar', this.file[0]);
@@ -97,7 +98,6 @@ export class TeacherSingUpComponent {
     const teacherSubject = { user_email: formu.email, subject: formu.subject };
     await this.subjectService.createTeacherSubject(teacherSubject);
 
-    this.formulario.reset()
   }
 
   loadAutocomplete() {

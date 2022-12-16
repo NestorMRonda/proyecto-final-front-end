@@ -58,7 +58,7 @@ export class TeacherListComponent {
   async ngOnInit() {
 
     this.activatedRouter.queryParams.subscribe(async (params) => {
-      const filterData = { price: this.price, score: this.score, subject: params['subject'], city: params['city'], remote: (params['remote'] === "true") ? true : false }
+      const filterData = { price: this.price, score: this.score, subject: params['subject'], remote: (params['remote'] === "true") ? true : false }
       this.arrTeachers = await this.teacherService.filterTeacherList(filterData)
       this.arrTeachers.map(teacher => teacher.experience = teacher.experience.slice(0, 180) + '...')
       this.arrTeachers.map(teacher => { teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`; })
@@ -73,8 +73,37 @@ export class TeacherListComponent {
             icon: {
               url: 'https://imgs.search.brave.com/eaL74z0xZyWFghCrbjVzxh4XOAKm5U-TyZR_6-VtfTM/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/cGlrcG5nLmNvbS9w/bmdsL2IvNDE2LTQx/NjUwMDNfaWNvbi1n/b29nbGUtbWFwLWJs/dWUtcGluLWNsaXBh/cnQucG5n',
               scaledSize: new google.maps.Size(25, 25)
-            }
+            },
+            title: teacher.name + ' ' + teacher.subject,
           })
+
+          const contentString =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading" style= "font-weight: bold;"><b>' + teacher.name + ' ' + teacher.surname + '</b></h1>' +
+            '<div id="bodyContent">' +
+            '<p> ' + teacher.experience + '</p>' +
+            '<p style= "font-weight: bold;">' + teacher.subject + '</p>' +
+            "</div>" +
+            "</div>";
+
+          const infowindow = new google.maps.InfoWindow({
+            content: contentString,
+          });
+
+          marker.addListener("mouseover", () => {
+            infowindow.open(this.mapa, marker);
+          });
+
+          google.maps.event.addListener(marker, 'click', () => {
+            this.router.navigate(['/profile', 'teacher', 'profile', teacher.id])
+          })
+
+          google.maps.event.addListener(marker, 'mouseover', () => {
+            return 'Hola'
+          })
+
         }
       }
     })
@@ -130,7 +159,7 @@ export class TeacherListComponent {
 
   async onSubmit() {
     /* Estos son los valores de los filtros, utilizar cunado se creen los filtros en el teacher.service*/
-    const filterData = { price: this.price, score: this.score, subject: this.asignatura, city: this.city, remote: this.remote }
+    const filterData = { price: this.price, score: this.score, subject: this.asignatura, remote: this.remote }
     this.arrTeachers = await this.teacherService.filterTeacherList(filterData)
     console.log(filterData)
   }

@@ -53,3 +53,11 @@ select option {
 textarea {
     font-family: 'Montserrat';
 }
+
+select.ng-invalid.ng-touched {
+    border: 3px solid lightcoral;
+}
+
+select.ng-valid.ng-touched {
+    border: 3px solid lightgreen;
+}

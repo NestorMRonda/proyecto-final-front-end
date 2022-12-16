@@ -43,6 +43,7 @@
 
     <div class="form-floating w-50 offset-3 my-3">
         <select formControlName="subject" class="form-select" aria-label="Floating label select example">
+            <option selected value="" disabled>Cualquiera</option>
             <option [value]="subject.name" *ngFor="let subject of arrSubjects">{{subject.name}}</option>
         </select>
         <label for="floatingSelect">Elige la asignaturas que impartirás</label>
@@ -51,7 +52,7 @@
 
     <div class="form-floating w-50 offset-3">
         <select formControlName="level" class="form-select" aria-label="Floating label select example">
-            <option selected>Cualquiera</option>
+            <option selected value="" disabled>Cualquiera</option>
             <option [value]="subject.level" *ngFor="let subject of arrSubjectsDistinct">{{subject.level}}</option>
         </select>
         <label for="floatingSelect">Elige el nivel que impartiras</label>
