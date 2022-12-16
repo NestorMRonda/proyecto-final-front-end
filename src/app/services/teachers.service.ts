@@ -65,4 +65,15 @@ export class TeachersService {
       this.httpClient.get<any>(`${this.baseUrl}/profile`, httpOptions)
     )
   }
+  profile() {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/profile`)
+    )
+  }
+
+  /* update(pTeacher: any) {
+    return firstValueFrom(
+      this.httpClient.put<any>(`${this.baseUrl}/${pTeacher}`, pTeacher)
+    )
+  } */
 }
