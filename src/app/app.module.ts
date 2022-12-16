@@ -19,6 +19,7 @@ import { TeacherDetailEditprofileComponent } from './components/teacher-detail-e
 import { StudentDetailNavbarComponent } from './components/student-detail-navbar/student-detail-navbar.component';
 import { StudentDetailEditprofileComponent } from './components/student-detail-editprofile/student-detail-editprofile.component';
 import { MapaComponent } from './components/mapa/mapa.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MapaComponent } from './components/mapa/mapa.component';
     TeacherDetailEditprofileComponent,
     StudentDetailNavbarComponent,
     StudentDetailEditprofileComponent,
-    MapaComponent
+    MapaComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

@@ -30,8 +30,26 @@ export class StudentsService {
 
   getStudentByEmail(pBody: any): Promise<any> {
     return firstValueFrom(
-      this.httpClient.post<any>(`${this.baseUrl}/email`, {email: pBody})
+      this.httpClient.post<any>(`${this.baseUrl}/email`, { email: pBody })
     )
+  }
+
+  isLogged(): boolean {
+    return (localStorage.getItem('token')) ? true : false;
+  }
+
+  Logout() {
+    if (localStorage.getItem('token')) {
+      localStorage.removeItem('token')
+    }
+
+    if (localStorage.getItem('type')) {
+      localStorage.removeItem('type')
+    }
+  }
+
+  isType(pType: string): boolean {
+    return (localStorage.getItem('type') === pType) ? true : false;
   }
 
 

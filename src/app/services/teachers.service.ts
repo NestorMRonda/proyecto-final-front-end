@@ -1,5 +1,5 @@
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { Teacher } from '../interfaces/teacher.interface';
@@ -50,6 +50,19 @@ export class TeachersService {
   register(pTeacher: any) {
     return firstValueFrom(
       this.httpClient.post<any>(`${this.baseUrl}/new`, pTeacher)
+    )
+  }
+
+  getUserByToken() {
+    //Cabecera:
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('token')!
+      })
+    }
+
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/profile`, httpOptions)
     )
   }
 }

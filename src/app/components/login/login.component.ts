@@ -21,15 +21,20 @@ export class LoginComponent {
       password: new FormControl('test1234', [Validators.required])
       /* Habría que ver si el email y la password coinciden con la base de datos*/
     })
-    this.token ="";
+    this.token = "";
 
   }
 
   async onSubmit() {
     const response = await this.studentsService.logIn(this.formulario.value)
     /* Response es un objeto con success y el token, el token hay que meterlo en el local storage, habría que meter el id en este objeto para hacer posteriormente el navigate en caso de que sea success */
-    
+
     if (response.success) {
+      this.token = response.token
+      localStorage.setItem('token', this.token)
+
+      localStorage.setItem('type', response.type)
+
       Swal.fire({
         position: 'center',
         icon: 'success',
@@ -38,20 +43,18 @@ export class LoginComponent {
         timer: 1500
       })
       const user = await this.studentsService.getStudentByEmail(this.formulario.value.email)
-      this.token = response.token
-      console.log(user)
-      if (user.type === "user"){
+      if (user.type === "user") {
         this.router.navigate([`/profile/students/profile/${user.id}`])
       }
-      if (user.type === "teacher"){
+      if (user.type === "teacher") {
         this.router.navigate([`/profile/teacher/profile/${user.id}`])
       }
       /* if (user.type === "admin"){
         this.router.navigate([`/profile/admin/profile/${user.id}`])
       } */
-      
-      
-      
+
+
+
     } else {
       Swal.fire({
         position: 'center',

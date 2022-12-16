@@ -5,19 +5,24 @@
 
         <div>
           <li [routerLink]="['/help']" id="ayuda" title="Necesitas Ayuda?">?</li>
-          <li [routerLink]="['/form','teacher']">Dar clases particulares</li>
+          <li *ngIf="!this.studentService.isType('teacher')" [routerLink]="['/form','teacher']">Dar clases particulares
+          </li>
         </div>
+        <figure>
+          <img [routerLink]="['/home']" src="../assets/images/Logo.png" alt="logo">
+        </figure>
         <div>
           <!-- Icono en un futuro, oculto por un guard hasta que se loguen -->
-          <li [routerLink]="['/profile/students']">Alumno</li>
-          <li [routerLink]="['/profile/teacher']">Profesor</li>
-          <li [routerLink]="['/login']">Conéctate</li>
+          <li *ngIf="this.studentService.isType('user')" [routerLink]="['/profile/students/profile', this.user.id]">
+            Alumno</li>
+          <li *ngIf="this.studentService.isType('teacher')" [routerLink]="['/profile/teacher/profile', this.user.id]">
+            Profesor
+          </li>
+          <li *ngIf="!this.studentService.isLogged()" [routerLink]="['/login']">Conéctate</li>
+          <li *ngIf="this.studentService.isLogged()" (click)="logOut()" [routerLink]="['/home']">Desconectarse</li>
         </div>
 
       </ul>
-      <figure>
-        <img [routerLink]="['/home']" src="../assets/images/Logo.png" alt="logo">
-      </figure>
     </nav>
   </header>
 
@@ -36,7 +41,7 @@
         <h2>Asistencia</h2>
         <ul>
           <li [routerLink]="['/']">Contacto</li>
-          <li [routerLink]="['/']">Ayuda</li>
+          <li [routerLink]="['/help']">Ayuda</li>
         </ul>
       </div>
       <div id="siguenos" class="col-4">

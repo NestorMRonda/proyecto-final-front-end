@@ -12,28 +12,32 @@ import { TeacherDetailsComponent } from './components/teacher-details/teacher-de
 import { TeacherListComponent } from './components/teacher-list/teacher-list.component';
 import { TeacherPrivateComponent } from './components/teacher-private/teacher-private.component';
 import { TeacherSingUpComponent } from './components/teacher-sing-up/teacher-sing-up.component';
+import { LoginGuard } from './guards/login.guard';
+import { TypeGuard } from './guards/type.guard';
 
 const routes: Routes = [
   //rutas estudiantes
   { path: '', component: LandingPageComponent },
   { path: 'home', component: LandingPageComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, },
   { path: 'form/students', component: StudentSingUpComponent },
-  { path: 'profile/students', component: StudentDetailNavbarComponent ,
-  children:[
-    {path: 'profile/:studentId', component:StudentsPrivateComponent}
-  ]
+  {
+    path: 'profile/students', component: StudentDetailNavbarComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'user' },
+    children: [
+      { path: 'profile/:studentId', component: StudentsPrivateComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'user' } }
+    ]
   },
   //rutas teachers
   { path: 'form/teacher', component: TeacherSingUpComponent },
   { path: 'list/teacher', component: TeacherListComponent },
-  { path: 'profile/teacher', component: TeacherDetailNavbarComponent , 
-  children: [
-    {path:'profile/:teacherId', component:TeacherDetailsComponent},
-    {path: 'edit', component:TeacherDetailEditprofileComponent}
-      ]
+  {
+    path: 'profile/teacher', component: TeacherDetailNavbarComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'teacher' },
+    children: [
+      { path: 'profile/:teacherId', component: TeacherDetailsComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'teacher' } },
+      { path: 'edit', component: TeacherDetailEditprofileComponent, canActivate: [LoginGuard] }
+    ]
   },
-  { path: 'teacher/:teacherId', component: TeacherDetailsComponent},
+  { path: 'teacher/:teacherId', component: TeacherDetailsComponent },
   { path: 'help', component: HelpComponent },
   { path: '**', redirectTo: 'home' }
 

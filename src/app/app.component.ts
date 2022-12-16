@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { StudentsService } from './services/students.service';
+import { TeachersService } from './services/teachers.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'proyecto-final-front-end';
+  user: any
+
+  constructor(public studentService: StudentsService, private teacherService: TeachersService) {
+
+    this.user = ''
+  }
+
+  async ngOnInit() {
+
+    this.user = await this.teacherService.getUserByToken()
+    console.log(this.user)
+  }
+
+
+  logOut() {
+    return this.studentService.Logout()
+  }
+
 }
