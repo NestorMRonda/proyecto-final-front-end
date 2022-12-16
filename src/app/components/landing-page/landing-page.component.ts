@@ -51,11 +51,22 @@ export class LandingPageComponent {
     this.arrTeachers = await this.teachersService.sortByScore();
 
     for (let teacher of this.arrTeachers) {
+      
       if (this.arrBestTeachers.length < 3) {
         /* Aquí el limitado a x caracteres */
+        if (teacher.avatar !== "undefined") {
+          this.url =`http://localhost:3000/images/${teacher.avatar}`
+        } else {
+          this.url="../../assets/images/Teacher_icon.png"
+        }
+        teacher.avatar = this.url
         teacher.experience = teacher.experience.slice(0, 200) + '...';
+<<<<<<< HEAD
         this.arrBestTeachers.push(teacher)
         this.arrBestTeachers.map(teacher => { teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`; })
+=======
+        this.arrBestTeachers.push(teacher)        
+>>>>>>> fix
       }
     }
   }

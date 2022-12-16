@@ -1,7 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SubjectsService } from 'src/app/services/subjects.service';
 import { TeachersService } from 'src/app/services/teachers.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-teacher-sing-up',
@@ -14,11 +16,12 @@ export class TeacherSingUpComponent {
   regExp: RegExp
   emailRegExp: RegExp
   arrSubjects: any[]
-  file: any
+  file;
 
   @ViewChild('inputPlaces') inputPlaces!: ElementRef;
 
-  constructor(private subjectService: SubjectsService, private teacherService: TeachersService) {
+  
+  constructor(private subjectService: SubjectsService, private teacherService: TeachersService, private router: Router) {
     this.emailRegExp = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)
     this.regExp = new RegExp(/^(?=.*\d).{4,30}$/)
 
@@ -42,6 +45,8 @@ export class TeacherSingUpComponent {
       remote: new FormControl(false, [Validators.required]),
 
     }, [this.repitePasswordValidator])
+
+    this.file="";
   }
 
   async ngOnInit() {
@@ -105,6 +110,17 @@ export class TeacherSingUpComponent {
 
     const autocomplete = new google.maps.places.Autocomplete(this.inputPlaces.nativeElement,)
 
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Te has registrado correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+    this.router.navigate([`/home`])
+    
+    
   }
 
   checkError(campo: string, error: string): boolean | undefined {
@@ -127,5 +143,7 @@ export class TeacherSingUpComponent {
 
   onChange($event: any) {
     this.file = $event.target.files
+
   }
+  
 }

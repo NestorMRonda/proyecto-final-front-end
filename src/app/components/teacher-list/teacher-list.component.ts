@@ -61,7 +61,15 @@ export class TeacherListComponent {
       const filterData = { price: this.price, score: this.score, subject: params['subject'], remote: (params['remote'] === "true") ? true : false }
       this.arrTeachers = await this.teacherService.filterTeacherList(filterData)
       this.arrTeachers.map(teacher => teacher.experience = teacher.experience.slice(0, 180) + '...')
-      this.arrTeachers.map(teacher => { teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`; })
+      this.arrTeachers.map(teacher => { 
+        if (teacher.avatar!=="undefined")
+        {teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`}
+        else{
+          teacher.avatar="../../assets/images/Teacher_icon.png"
+        }
+        })
+    })
+    /* if (this.arrTeachers.length === 0) this.arrTeachers = await this.teacherService.getAll() */
 
       if (this.arrTeachers) {
         for (let teacher of await this.teacherService.getAll()) {
