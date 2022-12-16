@@ -32,7 +32,6 @@ export class TeacherDetailsComponent {
 
 
       this.coments = await this.teachersService.getComents(+params['teacherId'])
-      console.log(this.coments)
     })
   }
 
