@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Student } from '../interfaces/student.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class StudentsService {
 
   baseUrl: string;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.baseUrl = 'http://localhost:3000/api/users'
 
   }
@@ -46,6 +47,7 @@ export class StudentsService {
     if (localStorage.getItem('type')) {
       localStorage.removeItem('type')
     }
+    this.router.navigate(['/login'])
   }
 
   isType(pType: string): boolean {

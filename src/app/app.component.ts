@@ -19,7 +19,6 @@ export class AppComponent {
   async ngOnInit() {
 
     this.user = await this.teacherService.getUserByToken()
-    console.log(this.user)
   }
 
 
