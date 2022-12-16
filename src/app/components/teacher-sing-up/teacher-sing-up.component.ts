@@ -20,7 +20,7 @@ export class TeacherSingUpComponent {
 
   @ViewChild('inputPlaces') inputPlaces!: ElementRef;
 
-  
+
   constructor(private subjectService: SubjectsService, private teacherService: TeachersService, private router: Router) {
     this.emailRegExp = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)
     this.regExp = new RegExp(/^(?=.*\d).{4,30}$/)
@@ -46,7 +46,7 @@ export class TeacherSingUpComponent {
 
     }, [this.repitePasswordValidator])
 
-    this.file="";
+    this.file = "";
   }
 
   async ngOnInit() {
@@ -120,9 +120,9 @@ export class TeacherSingUpComponent {
 
     const autocomplete = new google.maps.places.Autocomplete(this.inputPlaces.nativeElement,)
 
-    
-    
-    
+
+
+
   }
 
   checkError(campo: string, error: string): boolean | undefined {
@@ -147,5 +147,5 @@ export class TeacherSingUpComponent {
     this.file = $event.target.files
 
   }
-  
+
 }

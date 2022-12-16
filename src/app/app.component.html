@@ -19,7 +19,9 @@
             Profesor
           </li>
           <li *ngIf="!this.studentService.isLogged()" [routerLink]="['/login']">Conéctate</li>
+          <li *ngIf="this.studentService.isType('admin')" [routerLink]="['/admin']">Admin</li>
           <li *ngIf="this.studentService.isLogged()" (click)="logOut()" [routerLink]="['/home']">Desconectarse</li>
+
         </div>
 
       </ul>

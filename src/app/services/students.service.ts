@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { Student } from '../interfaces/student.interface';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -14,6 +13,18 @@ export class StudentsService {
   constructor(private httpClient: HttpClient, private router: Router) {
     this.baseUrl = 'http://localhost:3000/api/users'
 
+  }
+
+  getAll() {
+    return firstValueFrom(
+      this.httpClient.get<any>(this.baseUrl)
+    )
+  }
+
+  getInactive() {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/inactive`)
+    )
   }
 
 

@@ -18,8 +18,8 @@ import { TeacherDetailNavbarComponent } from './components/teacher-detail-navbar
 import { TeacherDetailEditprofileComponent } from './components/teacher-detail-editprofile/teacher-detail-editprofile.component';
 import { StudentDetailNavbarComponent } from './components/student-detail-navbar/student-detail-navbar.component';
 import { StudentDetailEditprofileComponent } from './components/student-detail-editprofile/student-detail-editprofile.component';
-import { MapaComponent } from './components/mapa/mapa.component';
-import { LogoutComponent } from './components/logout/logout.component';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+
 
 @NgModule({
   declarations: [
@@ -37,8 +37,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     TeacherDetailEditprofileComponent,
     StudentDetailNavbarComponent,
     StudentDetailEditprofileComponent,
-    MapaComponent,
-    LogoutComponent
+    AdminPanelComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -39,6 +39,7 @@ export class StudentSingUpComponent {
   async onSubmit() {
     const formu = this.formulario.value
     formu.type = 'user'
+    formu.active = 1
     let fd = new FormData();
     fd.append('avatar', this.file[0]);
     fd.append('name', formu.name)
@@ -48,17 +49,8 @@ export class StudentSingUpComponent {
     fd.append('password', formu.password)
     fd.append('phone', formu.phone)
     fd.append('type', formu.type)
+    fd.append('active', formu.active)
 
-    const student = {
-      name: formu.name,
-      surname: formu.surname,
-      birthdate: formu.birthdate,
-      email: formu.email,
-      password: formu.password,
-      phone: formu.phone,
-      avatar: formu.image,
-      type: formu.type
-    }
 
     const user = await this.studentService.register(fd)
     if (user) {

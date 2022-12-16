@@ -22,6 +22,12 @@ export class TeachersService {
     )
   }
 
+  getInactive() {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/inactive`)
+    )
+  }
+
   getById(pId: number): Promise<Teacher> {
     return firstValueFrom(
       this.httpClient.get<Teacher>(`${this.baseUrl}/${pId}`)

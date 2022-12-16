@@ -21,6 +21,7 @@ export class LandingPageComponent {
   formulario: FormGroup
 
   @ViewChild('inputPlaces') inputPlaces!: ElementRef;
+
   constructor(private subjectService: SubjectsService, private teachersService: TeachersService, private router: Router) {
     this.arrBestSubjects = [];
     this.arrSubjects = [];
@@ -51,13 +52,13 @@ export class LandingPageComponent {
     this.arrTeachers = await this.teachersService.sortByScore();
 
     for (let teacher of this.arrTeachers) {
-      
+
       if (this.arrBestTeachers.length < 3) {
         /* Aquí el limitado a x caracteres */
         if (teacher.avatar !== "undefined") {
-          this.url =`http://localhost:3000/images/${teacher.avatar}`
+          this.url = `http://localhost:3000/images/${teacher.avatar}`
         } else {
-          this.url="../../assets/images/Teacher_icon.png"
+          this.url = "../../assets/images/Teacher_icon.png"
         }
         teacher.avatar = this.url
         teacher.experience = teacher.experience.slice(0, 200) + '...';
@@ -73,7 +74,7 @@ export class LandingPageComponent {
     this.router.navigate(['/list', 'teacher'], {
       queryParams: {
         subject: formu.subject,
-        city: formu.city,
+        city: this.inputPlaces.nativeElement.value,
         remote: formu.remote
       }
     })

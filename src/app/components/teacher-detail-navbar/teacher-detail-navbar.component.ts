@@ -12,18 +12,14 @@ export class TeacherDetailNavbarComponent {
   teacher: any;
 
   constructor(
-    private teachersService: TeachersService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    private teachersService: TeachersService) {
     this.teacher = {}
   }
 
-  ngOnInit() {
-    this.activatedRoute.params.subscribe(async params => {
+  async ngOnInit() {
+    this.teacher = await this.teachersService.getUserByToken()
+    console.log(this.teacher.id)
 
-      this.teacher = await this.teachersService.getById(+params['teacherId'])
-
-    })
   }
 
 
