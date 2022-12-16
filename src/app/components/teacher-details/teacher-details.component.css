@@ -1,6 +1,7 @@
 * {
     font-family: 'Montserrat';
 }
+
 article.teacher {
     margin-top: 25px;
     background-color: var(--colorsecundario);
@@ -15,6 +16,7 @@ article.teacher {
 
 article.teacher div div img {
     width: 100%;
+    max-height: 300px;
     border-radius: 3%;
     display: flex;
     margin-bottom: 10px;
@@ -25,6 +27,7 @@ article.teacher div div h4 {
     padding: 10px;
     display: flex;
 }
+
 article.teacher div div small {
     padding: 10px;
 }
@@ -45,10 +48,11 @@ article.teacher div div.tags ul li {
     border-radius: 5px;
     transition: 1s;
 }
+
 article.teacher div div button {
-   margin-top: 25px;
-   margin-left: 25px;
-   padding: 15px;
+    margin-top: 25px;
+    margin-left: 25px;
+    padding: 15px;
 }
 
 
@@ -67,6 +71,7 @@ article.teacher div p span {
 .opiniones {
     margin-top: 20px;
 }
+
 .opiniones .row .col article {
     background-image: url('../../../assets/images/pizarra.png');
     background-size: 100% 100%;
