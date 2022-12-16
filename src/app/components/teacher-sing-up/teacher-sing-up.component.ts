@@ -103,13 +103,6 @@ export class TeacherSingUpComponent {
     const teacherSubject = { user_email: formu.email, subject: formu.subject };
     await this.subjectService.createTeacherSubject(teacherSubject);
 
-  }
-
-  loadAutocomplete() {
-    //Al trabajar con ViewChild al poner el inputPlaces para capturar el elemento propio necesitamos la propiedad nativeElement, y ahora si le podemos poner el .value.....
-
-    const autocomplete = new google.maps.places.Autocomplete(this.inputPlaces.nativeElement,)
-
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -119,6 +112,15 @@ export class TeacherSingUpComponent {
     })
 
     this.router.navigate([`/home`])
+
+  }
+
+  loadAutocomplete() {
+    //Al trabajar con ViewChild al poner el inputPlaces para capturar el elemento propio necesitamos la propiedad nativeElement, y ahora si le podemos poner el .value.....
+
+    const autocomplete = new google.maps.places.Autocomplete(this.inputPlaces.nativeElement,)
+
+    
     
     
   }
