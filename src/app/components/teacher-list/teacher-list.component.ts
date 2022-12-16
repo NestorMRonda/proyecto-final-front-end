@@ -114,7 +114,7 @@ export class TeacherListComponent {
 
         }
       }
-    })
+    
 
     this.arrSubjects = await this.subjectsService.getAll()
 

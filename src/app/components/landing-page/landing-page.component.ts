@@ -61,12 +61,8 @@ export class LandingPageComponent {
         }
         teacher.avatar = this.url
         teacher.experience = teacher.experience.slice(0, 200) + '...';
-<<<<<<< HEAD
         this.arrBestTeachers.push(teacher)
         this.arrBestTeachers.map(teacher => { teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`; })
-=======
-        this.arrBestTeachers.push(teacher)        
->>>>>>> fix
       }
     }
   }
