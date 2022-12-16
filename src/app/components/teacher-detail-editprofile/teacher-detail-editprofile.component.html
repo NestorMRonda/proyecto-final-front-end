@@ -1,1 +1,93 @@
-<p>teacher-detail-editprofile works!</p>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-group container" method="post"
+    enctype="multipart/form-data">
+    <!-- Solucionar lo de los borders, también en el login -->
+    <div class="d-flex offset-3 w-50 justify-content-around">
+        <div class="my-2">
+            <input formControlName="name" type="text" class="form-control" placeholder="Nombre">
+            <small *ngIf="checkError('name', 'required')" class=" text-danger">Requerido</small>
+        </div>
+        <div class="my-2">
+            <input formControlName="surname" type="text" class="form-control " placeholder="Apellidos">
+            <small *ngIf="checkError('surname', 'required')" class=" text-danger">Requerido</small>
+        </div>
+    </div>
+    <div class="container my-2 offset-3 w-50 form-group">
+        <label class="label my-2">Fecha de nacimiento</label>
+        <input formControlName="birthdate" type="date" class="form-control" placeholder="Fecha nacimiento">
+        <small *ngIf="checkError('birthdate', 'required')" class=" text-danger">Requerido</small>
+    </div>
+    <div class="my-4">
+        <input formControlName="email" type="email" class="form-control offset-3 w-50"
+            placeholder="Email: example@gmail.com">
+        <small *ngIf="checkError('email', 'required')" class="text-danger">Requerido</small>
+        <small *ngIf="checkError('email', 'pattern')" class="text-danger">El formato del email no es correcto</small>
+    </div>
+    <div class="my-2">
+        <input formControlName="password" type="password" class="form-control offset-3 w-50" placeholder="Password">
+        <small *ngIf="checkError('password', 'required')" class=" text-danger">Requerido</small>
+        <small *ngIf="checkError('password', 'pattern')" class="text-danger">La contraseña debe medir entre 4 y 30
+            caracteres y debe incluir al menos un número</small>
+    </div>
+    <div class="my-2">
+        <input formControlName="repitePassword" type="password" class="form-control offset-3 w-50"
+            placeholder="Repite la password">
+        <small *ngIf=" repitePasswordValidator(formulario)" class=" text-danger">Las contraseñas no
+            coinciden</small>
+    </div>
+    <div class="my-4">
+        <input formControlName="phone" type="text" class="form-control offset-3  w-50" placeholder="Teléfono">
+        <small *ngIf="checkError('phone', 'required')" class=" text-danger">Requerido</small>
+        <small *ngIf="checkError('phone', 'minlength')" class=" text-danger">Tiene menos de 9 carácteres</small>
+        <small *ngIf="checkError('phone', 'maxlength')" class=" text-danger">Tiene más de 9 caracteres</small>
+    </div>
+
+    <div class="form-floating w-50 offset-3 my-3">
+        <select formControlName="subject" class="form-select" aria-label="Floating label select example">
+            <option selected value="" disabled>Cualquiera</option>
+            <option [value]="subject.name" *ngFor="let subject of arrSubjects">{{subject.name}}</option>
+        </select>
+        <label for="floatingSelect">Elige la asignaturas que impartirás</label>
+        <small *ngIf="checkError('subject', 'required')" class="text-danger not-margin">Requerido</small>
+    </div>
+
+    <div class="form-floating w-50 offset-3">
+        <select formControlName="level" class="form-select" aria-label="Floating label select example">
+            <option selected value="" disabled>Cualquiera</option>
+            <option [value]="subject.level" *ngFor="let subject of arrSubjectsDistinct">{{subject.level}}</option>
+        </select>
+        <label for="floatingSelect">Elige el nivel que impartiras</label>
+        <small *ngIf="checkError('level', 'required')" class="text-danger not-margin">Requerido</small>
+    </div>
+
+    <div class="container w-50 form-group my-2">
+        <label class="label my-2">Imagen avatar (Opcional)</label>
+        <!--El tipo de la imágen tiene que ser file -->
+        <input type="file" class="form-control" (change)="onChange($event)" name="avatar">
+    </div>
+    <div class="my-4">
+        <textarea formControlName="experience" class="form-control offset-3 w-50" placeholder="Háblanos sobre tí"
+            cols="30" rows="10"></textarea>
+        <small *ngIf="checkError('experience', 'required')" class="text-danger">Requerido</small>
+    </div>
+    <div class="my-4">
+        <label class="offset-3 w-50 my-2">Establece tu Precio/Hora:</label>
+        <input class="form-control offset-3 w-50" type="number" formControlName="pricehour">
+        <small *ngIf="checkError('pricehour', 'required')" class="text-danger">Requerido</small>
+    </div>
+    <div class="my-4">
+        <label class="offset-3 w-50 my-2">(Opcional: Rellenar en caso de querer dar clases presenciales)</label>
+        <input #inputPlaces formControlName="address" type="text" class="form-control offset-3 w-50"
+            placeholder="Ubicación">
+    </div>
+    <div class="form-check offset-3 my-4">
+        <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault" formControlName="remote">
+        <label class="form-check-label" for="flexCheckDefault">
+            Remoto
+        </label>
+    </div>
+    <!-- Añadir remote, hacer select con petición a subject -->
+    <div>
+        <input [disabled]="!formulario.valid" [ngClass]="{'blocked': !formulario.valid}"
+            class="btn btn-dark offset-5 w-25" type="submit" value="Entrar">
+    </div>
+</form>

@@ -52,4 +52,16 @@ export class TeachersService {
       this.httpClient.post<any>(`${this.baseUrl}/new`, pTeacher)
     )
   }
+
+  profile() {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/profile`)
+    )
+  }
+
+  /* update(pTeacher: any) {
+    return firstValueFrom(
+      this.httpClient.put<any>(`${this.baseUrl}/${pTeacher}`, pTeacher)
+    )
+  } */
 }
