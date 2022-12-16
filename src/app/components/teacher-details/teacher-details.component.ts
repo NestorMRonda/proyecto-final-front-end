@@ -25,7 +25,12 @@ export class TeacherDetailsComponent {
 
       this.teacher = await this.teachersService.getById(+params['teacherId'])
       console.log(this.teacher)
-      this.url =`http://localhost:3000/images/${this.teacher.avatar}`
+      if (this.teacher.avatar !== "undefined") {
+        this.url =`http://localhost:3000/images/${this.teacher.avatar}`
+      } else {
+        this.url="../../assets/images/Teacher_icon.png"
+      }
+     
 
       this.coments = await this.teachersService.getComents(+params['teacherId'])
       console.log(this.coments)

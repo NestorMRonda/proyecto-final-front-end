@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SubjectsService } from 'src/app/services/subjects.service';
 import { TeachersService } from 'src/app/services/teachers.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-teacher-sing-up',
@@ -14,9 +16,9 @@ export class TeacherSingUpComponent {
   regExp: RegExp
   emailRegExp: RegExp
   arrSubjects: any[]
-  file: any
+  file;
 
-  constructor(private subjectService: SubjectsService, private teacherService: TeachersService) {
+  constructor(private subjectService: SubjectsService, private teacherService: TeachersService, private router: Router) {
     this.emailRegExp = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)
     this.regExp = new RegExp(/^(?=.*\d).{4,30}$/)
 
@@ -32,14 +34,16 @@ export class TeacherSingUpComponent {
       password: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
       repitePassword: new FormControl('test1234', [Validators.required]),
       phone: new FormControl('655875404', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
-      subject: new FormControl('Matematicas', [Validators.required]),
-      level: new FormControl('ESO', [Validators.required]),
+      subject: new FormControl(null, [Validators.required]),
+      level: new FormControl(null, [Validators.required]),
       experience: new FormControl('Haré lo que pueda y más de lo que pueda si es posible y haré lo posible, incluso lo imposible, si es que eso también es posible.'),
       pricehour: new FormControl(14, [Validators.required]),
       address: new FormControl(''),
       remote: new FormControl(false, [Validators.required]),
 
     }, [this.repitePasswordValidator])
+
+    this.file="";
   }
 
   async ngOnInit() {
@@ -51,7 +55,7 @@ export class TeacherSingUpComponent {
     const formu = this.formulario.value;
     formu.active = 1;
     formu.type = 'teacher';
-
+    
     let fd = new FormData();
     fd.append('avatar', this.file[0]);
     fd.append('name', formu.name)
@@ -89,7 +93,17 @@ export class TeacherSingUpComponent {
     const teacherSubject = { user_email: formu.email, subject: formu.subject };
     await this.subjectService.createTeacherSubject(teacherSubject);
 
-    this.formulario.reset()
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Te has registrado correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+    this.router.navigate([`/home`])
+    
+    
   }
 
   checkError(campo: string, error: string): boolean | undefined {
@@ -112,5 +126,7 @@ export class TeacherSingUpComponent {
 
   onChange($event: any) {
     this.file = $event.target.files
+
   }
+  
 }

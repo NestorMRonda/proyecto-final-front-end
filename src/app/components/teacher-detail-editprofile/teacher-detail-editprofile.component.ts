@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./teacher-detail-editprofile.component.css']
 })
 export class TeacherDetailEditprofileComponent {
+
+  constructor(){}
   
 }
