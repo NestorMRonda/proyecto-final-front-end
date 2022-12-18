@@ -58,63 +58,65 @@ export class TeacherListComponent {
   async ngOnInit() {
 
     this.activatedRouter.queryParams.subscribe(async (params) => {
+
       const filterData = { price: this.price, score: this.score, subject: params['subject'], remote: (params['remote'] === "true") ? true : false }
       this.arrTeachers = await this.teacherService.filterTeacherList(filterData)
       this.arrTeachers.map(teacher => teacher.experience = teacher.experience.slice(0, 180) + '...')
-      this.arrTeachers.map(teacher => { 
-        if (teacher.avatar!=="undefined")
-        {teacher.avatar = `http://localhost:3000/images/${teacher.avatar}`}
-        else{
-          teacher.avatar="../../assets/images/Teacher_icon.png"
+      this.arrTeachers.map(teacher => {
+        if (teacher.avatar !== "undefined") { teacher.avatar = `http://localhost:3000/images/${teacher.avatar}` }
+        else {
+          teacher.avatar = "../../assets/images/Teacher_icon.png"
         }
-        })
+      })
     })
     /* if (this.arrTeachers.length === 0) this.arrTeachers = await this.teacherService.getAll() */
 
-      if (this.arrTeachers) {
-        for (let teacher of await this.teacherService.getAll()) {
-          const Position = new google.maps.LatLng(teacher.lat!, teacher.long!)
-          const marker = new google.maps.Marker({
-            position: Position,
-            map: this.mapa,
-            animation: google.maps.Animation.BOUNCE,
-            icon: {
-              url: 'https://imgs.search.brave.com/eaL74z0xZyWFghCrbjVzxh4XOAKm5U-TyZR_6-VtfTM/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/cGlrcG5nLmNvbS9w/bmdsL2IvNDE2LTQx/NjUwMDNfaWNvbi1n/b29nbGUtbWFwLWJs/dWUtcGluLWNsaXBh/cnQucG5n',
-              scaledSize: new google.maps.Size(25, 25)
-            },
-            title: teacher.name + ' ' + teacher.subject,
-          })
+    if (this.arrTeachers) {
+      for (let teacher of await this.teacherService.getAll()) {
+        const Position = new google.maps.LatLng(teacher.lat!, teacher.long!)
+        const marker = new google.maps.Marker({
+          position: Position,
+          map: this.mapa,
+          animation: google.maps.Animation.BOUNCE,
+          icon: {
+            url: 'https://imgs.search.brave.com/eaL74z0xZyWFghCrbjVzxh4XOAKm5U-TyZR_6-VtfTM/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/cGlrcG5nLmNvbS9w/bmdsL2IvNDE2LTQx/NjUwMDNfaWNvbi1n/b29nbGUtbWFwLWJs/dWUtcGluLWNsaXBh/cnQucG5n',
+            scaledSize: new google.maps.Size(25, 25)
+          },
+          title: teacher.name + ' ' + teacher.subject,
+        })
 
-          const contentString =
-            '<div id="content">' +
-            '<div id="siteNotice">' +
-            "</div>" +
-            '<h1 id="firstHeading" class="firstHeading" style= "font-weight: bold;"><b>' + teacher.name + ' ' + teacher.surname + '</b></h1>' +
-            '<div id="bodyContent">' +
-            '<p> ' + teacher.experience + '</p>' +
-            '<p style= "font-weight: bold;">' + teacher.subject + '</p>' +
-            "</div>" +
-            "</div>";
+        const contentString =
+          '<div id="content">' +
+          '<div id="siteNotice">' +
+          "</div>" +
+          '<h1 id="firstHeading" class="firstHeading" style= "font-weight: bold;"><b>' + teacher.name + ' ' + teacher.surname + '</b></h1>' +
+          '<div id="bodyContent">' +
+          '<p> ' + teacher.experience + '</p>' +
+          '<p style= "font-weight: bold;">' + teacher.subject + '</p>' +
+          "</div>" +
+          "</div>";
 
-          const infowindow = new google.maps.InfoWindow({
-            content: contentString,
-          });
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString,
+        });
 
-          marker.addListener("mouseover", () => {
-            infowindow.open(this.mapa, marker);
-          });
+        marker.addListener("mouseover", () => {
+          infowindow.open(this.mapa, marker);
+        });
 
-          google.maps.event.addListener(marker, 'click', () => {
-            this.router.navigate(['/profile', 'teacher', 'profile', teacher.id])
-          })
+        marker.addListener("mouseout", () => {
+          infowindow.close();
+        });
 
-          google.maps.event.addListener(marker, 'mouseover', () => {
-            return 'Hola'
-          })
+        google.maps.event.addListener(marker, 'click', () => {
+          this.router.navigate(['/profile', 'teacher', 'profile', teacher.id])
+        })
 
-        }
+
+
       }
-    
+    }
+
 
     this.arrSubjects = await this.subjectsService.getAll()
 
@@ -169,7 +171,7 @@ export class TeacherListComponent {
     /* Estos son los valores de los filtros, utilizar cunado se creen los filtros en el teacher.service*/
     const filterData = { price: this.price, score: this.score, subject: this.asignatura, remote: this.remote }
     this.arrTeachers = await this.teacherService.filterTeacherList(filterData)
-    console.log(filterData)
+
   }
 
   onNavigate(pId: number) {
@@ -198,8 +200,6 @@ export class TeacherListComponent {
     //place_changed es el evento que nos permite cambiar el lugar que se muestra en el mapa
     google.maps.event.addListener(autocomplete, 'place_changed', (event) => {
       const place = autocomplete.getPlace()
-      console.log(place.geometry!.location)
-      console.log(place.geometry!.location.lat)
       this.mapa.setCenter(place.geometry!.location)
       const marker = this.markerMaker(place.geometry!.location, this.mapa, google.maps.Animation.DROP)
       marker.setAnimation(google.maps.Animation.BOUNCE)

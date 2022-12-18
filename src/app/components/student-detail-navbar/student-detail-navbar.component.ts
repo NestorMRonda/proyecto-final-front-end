@@ -11,19 +11,16 @@ export class StudentDetailNavbarComponent {
   teacher: any;
 
   constructor(
-    private teachersService: TeachersService ,
-    private router: Router, 
-    private activatedRoute: ActivatedRoute)
-    {
-    this.teacher= {}
+    private teachersService: TeachersService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
+    this.teacher = {}
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.activatedRoute.params.subscribe(async params => {
-      console.log(+params['teacherId'])
 
       this.teacher = await this.teachersService.getById(+params['teacherId'])
-      console.log(this.teacher)
     })
-  } 
+  }
 }

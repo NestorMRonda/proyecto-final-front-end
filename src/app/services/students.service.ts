@@ -27,10 +27,22 @@ export class StudentsService {
     )
   }
 
+  getStudentByEmail(pBody: any): Promise<any> {
+    return firstValueFrom(
+      this.httpClient.post<any>(`${this.baseUrl}/email`, { email: pBody })
+    )
+  }
+
 
   logIn(pBody: any): Promise<any> {
     return firstValueFrom(
       this.httpClient.post<any>(`${this.baseUrl}/login`, pBody)
+    )
+  }
+
+  changeActivation(pBody: any): Promise<any> {
+    return firstValueFrom(
+      this.httpClient.post<any>(`${this.baseUrl}/activation`, pBody)
     )
   }
 
@@ -40,11 +52,18 @@ export class StudentsService {
     )
   }
 
-  getStudentByEmail(pBody: any): Promise<any> {
+  createOpinion(pBody: any): Promise<any> {
     return firstValueFrom(
-      this.httpClient.post<any>(`${this.baseUrl}/email`, { email: pBody })
+      this.httpClient.put<any>(`${this.baseUrl}/opinion`, pBody)
     )
   }
+
+  updateStudentProfile(pId: number, pBody: any): Promise<any> {
+    return firstValueFrom(
+      this.httpClient.put<any>(`${this.baseUrl}/update/${pId}`, pBody)
+    )
+  }
+
 
   isLogged(): boolean {
     return (localStorage.getItem('token')) ? true : false;

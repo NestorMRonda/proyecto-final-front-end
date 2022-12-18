@@ -18,7 +18,7 @@ export class TeacherDetailNavbarComponent {
 
   async ngOnInit() {
     this.teacher = await this.teachersService.getUserByToken()
-    console.log(this.teacher.id)
+
 
   }
 

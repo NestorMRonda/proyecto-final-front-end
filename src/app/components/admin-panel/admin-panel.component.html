@@ -10,23 +10,21 @@
 
 <section>
 
-    <article class="teachers" *ngFor="let teacher of arrUsers">
+    <article [ngClass]="{'inactive': user.active === 0}" class="teachers" *ngFor="let user of arrUsers">
         <!-- El src realmente será el teacher.avatar -->
 
         <div class="cabecera-teacher">
-            <h4>{{teacher.name}}</h4>
-            <small>{{teacher.media_score}}⭐</small>
+            <h4>{{user.name}} {{user.surname}}</h4>
+            <small *ngIf="user.media_score">{{user.media_score}}⭐</small>
         </div>
-        <img [src]="teacher.avatar" alt="Avatar">
-        <div class="tags">
-            <ul>
-                <li>{{teacher.pricehour}} €/hora</li>
-                <li>{{(teacher.remote === 1)? 'Remoto': 'Presencial'}}</li>
-                <li *ngIf="teacher.subject!==null">{{teacher.subject}}</li>
-            </ul>
-        </div>
+        <img [src]="user.avatar" alt="Avatar">
+        <ul>
+            <li>{{user.type}}</li>
+            <li (click)="changeStatus(user.id, 0)" class="active" *ngIf="user.active === 1">Desactivar</li>
+            <li (click)="changeStatus(user.id, 1)" class="active" *ngIf="user.active === 0">Activar</li>
+        </ul>
 
-        <p><span>Descripción:</span> {{teacher.experience}}</p>
-
+        <p *ngIf="user.experience"><span>Descripción:</span> {{user.experience}}</p>
     </article>
+
 </section>

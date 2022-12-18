@@ -19,6 +19,7 @@ import { TeacherDetailEditprofileComponent } from './components/teacher-detail-e
 import { StudentDetailNavbarComponent } from './components/student-detail-navbar/student-detail-navbar.component';
 import { StudentDetailEditprofileComponent } from './components/student-detail-editprofile/student-detail-editprofile.component';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { StudentOpinionComponent } from './components/student-opinion/student-opinion.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
     StudentDetailNavbarComponent,
     StudentDetailEditprofileComponent,
     AdminPanelComponent,
+    StudentOpinionComponent,
 
   ],
   imports: [

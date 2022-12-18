@@ -1,0 +1,16 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-group offset-3 container">
+    <div class="my-2 w-50">
+        <input formControlName="opinion" type="text" class="form-control" placeholder="Opinión">
+        <small *ngIf="checkError('opinion', 'required')" class=" text-danger">Requerido</small>
+    </div>
+    <div class="my-4 w-50">
+        <label class="mt-3">Puntuación</label>
+        <input formControlName="score" type="range" max="10" class="form-control  w-25 my-2">
+        <small><span class="text-info">{{formulario.value.score}}</span> / 10</small>
+        <small *ngIf="checkError('score', 'required')" class=" text-danger">Requerido</small>
+    </div>
+    <div>
+        <input [disabled]="!formulario.valid" [ngClass]="{'blocked': !formulario.valid}"
+            class="btn btn-dark offset-2 w-25" type="submit" value="Enviar">
+    </div>
+</form>

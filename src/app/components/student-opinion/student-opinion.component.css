@@ -1,0 +1,15 @@
+form {
+    font-family: var(--fuenteprincipal);
+}
+
+input {
+    cursor: pointer;
+}
+
+input.ng-invalid.ng-touched {
+    border: 2px solid lightcoral;
+}
+
+.blocked {
+    opacity: .6;
+}
