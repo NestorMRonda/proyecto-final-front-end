@@ -84,5 +84,9 @@ export class StudentsService {
     return (localStorage.getItem('type') === pType) ? true : false;
   }
 
+  isTypeAdmin(pType: string): boolean {
+    return (localStorage.getItem('type') === pType || localStorage.getItem('type') === "admin") ? true : false;
+  }
+
 
 }

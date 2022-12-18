@@ -5,7 +5,8 @@
 
         <div>
           <li [routerLink]="['/help']" id="ayuda" title="Necesitas Ayuda?">?</li>
-          <li *ngIf="!this.studentService.isType('teacher')" [routerLink]="['/form','teacher']">Dar clases particulares
+          <li *ngIf="!this.studentService.isTypeAdmin('teacher')" [routerLink]="['/form','teacher']">Dar clases
+            particulares
           </li>
         </div>
         <figure>
