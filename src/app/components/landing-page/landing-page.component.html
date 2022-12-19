@@ -28,7 +28,7 @@
                 <ul class="opiniones">
                     <li><span>Felipe:</span> Mi profesor Néstor es de los mejores programadores en España actualmente
                     </li>
-                    <li><span>Juanan:</span> Mario enseña bastante bien js pero echo de menos el color tomato</li>
+                    <li><span>Juanan:</span> Mario enseña bastante bien js, pero echo de menos el color tomato</li>
                     <li><span>Daniel:</span> He aprendido a crear componentes de angular pulsando una tecla🤗</li>
                     <li><span>Javier:</span> I'm improving my level of english really quickly</li>
                 </ul>
@@ -37,7 +37,7 @@
 
         <section>
             <h3>Asignaturas TOP</h3>
-            <article class="subjects" *ngFor="let subject of this.arrBestSubjects">
+            <article (click)="onSubject(subject.name)" class="subjects" *ngFor="let subject of this.arrBestSubjects">
                 <!-- ngfor con una array de 5 asignaturas -->
                 <h4>{{subject.name}}</h4>
             </article>

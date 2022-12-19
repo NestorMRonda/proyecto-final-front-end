@@ -83,6 +83,14 @@ export class LandingPageComponent {
     })
   }
 
+  onSubject(pSubject: string) {
+    this.router.navigate(['/list', 'teacher'], {
+      queryParams: {
+        subject: pSubject,
+      }
+    })
+  }
+
   onNavigate(pId: number): void {
     this.router.navigate(['/teacher', pId])
   }
