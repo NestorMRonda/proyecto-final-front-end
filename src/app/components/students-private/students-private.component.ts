@@ -20,10 +20,7 @@ export class StudentsPrivateComponent {
   ngOnInit() {
 
     this.activatedRoute.params.subscribe(async params => {
-
-
       this.student = await this.teachersService.getById(+params['teacherId'])
-
 
       this.coments = await this.teachersService.getComents(+params['teacherId'])
 

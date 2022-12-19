@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <input #inputPlaces class="mapa" type="text" [(ngModel)]="city" placeholder="Ubicación">
+    <input #inputPlaces class="mapa" type="text" [value]="city" placeholder="Ubicación">
     <select [(ngModel)]="asignatura">
         <option value="" selected>Asignaturas</option>
         <option *ngFor="let subject of this.arrSubjects" [value]="subject.name">{{subject.name}}

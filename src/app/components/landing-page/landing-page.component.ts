@@ -13,7 +13,8 @@ import { TeachersService } from 'src/app/services/teachers.service';
 export class LandingPageComponent {
   arrBestSubjects: any[];
   arrSubjects: any[];
-
+  lat!: number
+  long!: number
   arrTeachers: any[];
   arrBestTeachers: any[];
   url: string;
@@ -75,7 +76,9 @@ export class LandingPageComponent {
       queryParams: {
         subject: formu.subject,
         city: this.inputPlaces.nativeElement.value,
-        remote: formu.remote
+        remote: formu.remote,
+        lat: this.lat,
+        lng: this.long
       }
     })
   }
@@ -90,6 +93,15 @@ export class LandingPageComponent {
 
   loadAutocomplete() {
     const autocomplete = new google.maps.places.Autocomplete(this.inputPlaces.nativeElement,)
+    google.maps.event.addListener(autocomplete, 'place_changed', (event) => {
+      const place = autocomplete.getPlace()
+
+      console.log(place.geometry!.location)
+      this.lat = place.geometry!.location.lat()
+      this.long = place.geometry!.location.lng()
+      console.log(this.lat, this.long)
+
+    })
 
   }
 }

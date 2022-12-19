@@ -46,6 +46,7 @@ export class TeacherSingUpComponent {
 
     }, [this.repitePasswordValidator])
 
+    /* Lo inicializamos vacio para que se ponga undefined por defecto */
     this.file = "";
   }
 
@@ -80,22 +81,6 @@ export class TeacherSingUpComponent {
     fd.append('address', formu.address)
     fd.append('active', "1")
     fd.append('remote', formu.remote)
-
-    /*     const profe = {
-          name: formu.name,
-          surname: formu.surname,
-          birthdate: formu.birthdate,
-          email: formu.email,
-          password: formu.password,
-          phone: formu.phone,
-          avatar: formu.image,
-          type: formu.type,
-          experience: formu.experience,
-          pricehour: formu.pricehour,
-          address: formu.address,
-          active: true,
-          remote: formu.remote
-        } */
 
     await this.teacherService.register(fd)
 

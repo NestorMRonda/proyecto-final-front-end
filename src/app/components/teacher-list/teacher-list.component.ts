@@ -31,6 +31,7 @@ export class TeacherListComponent {
   city: string
   remote: boolean
 
+
   showScore: boolean
   showPrice: boolean
 
@@ -69,7 +70,39 @@ export class TeacherListComponent {
         }
       })
     })
-    /* if (this.arrTeachers.length === 0) this.arrTeachers = await this.teacherService.getAll() */
+
+    this.arrSubjects = await this.subjectsService.getAll()
+
+  }
+
+  async ngAfterViewInit() {
+    //Haremos que se cargue aquí el mapa ya que este método se ejecuta cuando ya se ha cargado todo el componente, algo imprescindible para los mapas.
+    this.loadMap()
+    this.loadAutocomplete()
+
+
+    this.activatedRouter.queryParams.subscribe(async (params) => {
+      this.city = params['city']
+
+      this.mapa.setCenter(new google.maps.LatLng(params['lat'], params['lng']))
+      this.markerMaker(new google.maps.LatLng(params['lat'], params['lng']), this.mapa, google.maps.Animation.DROP)
+      if (!params['lat']) {
+        navigator.geolocation.getCurrentPosition((posicion) => {
+          const myPosition = new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude)
+          // Esto sustituye al center que pusimos abajo en el options.
+          this.posicionInicial = myPosition
+
+          this.mapa.setCenter(myPosition)
+
+          //Marcador en mi posicion
+          const marker = new google.maps.Marker({
+            position: myPosition,
+            map: this.mapa,
+            animation: google.maps.Animation.BOUNCE,
+          })
+        },)
+      }
+    })
 
     if (this.arrTeachers) {
       for (let teacher of await this.teacherService.getAll()) {
@@ -112,39 +145,9 @@ export class TeacherListComponent {
           this.router.navigate(['/profile', 'teacher', 'profile', teacher.id])
         })
 
-
-
       }
     }
-
-
-    this.arrSubjects = await this.subjectsService.getAll()
-
-
-    //El objeto navigator nos permite recuperar la posición del dispositivo.
-    //getCurrentPosition tiene 2 parámetros, uno la función y otro lo que hace si da error
-    navigator.geolocation.getCurrentPosition((posicion) => {
-      const myPosition = new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude)
-      // Esto sustituye al center que pusimos abajo en el options.
-      this.posicionInicial = myPosition
-      this.mapa.setCenter(myPosition)
-
-
-      //Marcador en mi posicion
-      const marker = new google.maps.Marker({
-        position: myPosition,
-        map: this.mapa,
-        animation: google.maps.Animation.BOUNCE,
-      })
-    },)
   }
-
-  ngAfterViewInit() {
-    //Haremos que se cargue aquí el mapa ya que este método se ejecuta cuando ya se ha cargado todo el componente, algo imprescindible para los mapas.
-    this.loadMap()
-    this.loadAutocomplete()
-  }
-
 
   markerMaker(position: google.maps.LatLng, mapa: google.maps.Map, animacion: google.maps.Animation): google.maps.Marker {
     return new google.maps.Marker({

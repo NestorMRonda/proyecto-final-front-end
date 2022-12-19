@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -13,6 +13,14 @@ export class StudentsService {
   constructor(private httpClient: HttpClient, private router: Router) {
     this.baseUrl = 'http://localhost:3000/api/users'
 
+
+  }
+  getHeaders() {
+    return {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('token')!
+      })
+    }
   }
 
   getAll() {
@@ -41,8 +49,9 @@ export class StudentsService {
   }
 
   changeActivation(pBody: any): Promise<any> {
+
     return firstValueFrom(
-      this.httpClient.post<any>(`${this.baseUrl}/activation`, pBody)
+      this.httpClient.post<any>(`${this.baseUrl}/activation`, pBody, this.getHeaders())
     )
   }
 
@@ -54,7 +63,7 @@ export class StudentsService {
 
   createOpinion(pBody: any): Promise<any> {
     return firstValueFrom(
-      this.httpClient.put<any>(`${this.baseUrl}/opinion`, pBody)
+      this.httpClient.put<any>(`${this.baseUrl}/opinion`, pBody, this.getHeaders())
     )
   }
 

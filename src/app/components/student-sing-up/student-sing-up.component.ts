@@ -21,7 +21,7 @@ export class StudentSingUpComponent {
 
     this.regExp = new RegExp(/^(?=.*\d).{4,30}$/)
 
-
+    this.file = ''
     this.formulario = new FormGroup({
 
       name: new FormControl('', [Validators.required]),

@@ -34,6 +34,7 @@ export class AdminPanelComponent {
   //Si queremos desactivarlo en el segundo parámetro le pasamos un 0, si queremos activarlo le pasamos un 1
   async changeStatus(pId: number, active: number) {
     await this.studentService.changeActivation({ id: pId, active })
+    this.arrUsers = await this.studentService.getAll()
   }
 
 }

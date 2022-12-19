@@ -72,8 +72,14 @@ export class TeachersService {
     )
   }
   profile() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('token')!
+      })
+    }
+
     return firstValueFrom(
-      this.httpClient.get<any>(`${this.baseUrl}/profile`)
+      this.httpClient.get<any>(`${this.baseUrl}/profile`, httpOptions)
     )
   }
 
