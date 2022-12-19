@@ -9,9 +9,11 @@
                     <li>{{teacher.pricehour}} €/hora</li>
                     <li>{{(teacher.remote === 1)? 'Remoto': 'Presencial'}}</li>
                     <li *ngIf="teacher.subject!==null">{{teacher.subject}}</li>
+                    <li *ngIf="studentService.isLogged()">{{teacher.phone}}📱</li>
                 </ul>
             </div>
-            <button class="btn btn-primary">Contactar</button>
+            <!-- *ngIf="teacher.type === 'user'" -->
+            <button class="btn btn-primary">Solicitar clases</button>
         </div>
         <p><span>Descripción:<br></span> {{teacher.experience}}</p>
     </div>
