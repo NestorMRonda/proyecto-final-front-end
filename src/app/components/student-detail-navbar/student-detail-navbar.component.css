@@ -1,12 +1,14 @@
 * {
     font-family: 'Montserrat';
 }
+
 nav {
-    background: linear-gradient(180deg, #FFFFFF 1%, #21242E 17%, #21242E 82%, #FFFFFF 98%);
+    background-color: var(--colorsecundario);
     height: 50px;
     border-radius: 20px;
     margin-bottom: 10px;
 }
+
 nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -17,8 +19,9 @@ nav ul {
     color: white;
     height: 50px;
     cursor: pointer;
-    
+
 }
+
 nav ul li:hover {
     color: var(--Amarillo);
     transition: 0.5s;

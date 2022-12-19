@@ -7,21 +7,23 @@
             <div class="tags">
                 <ul>
                     <li>{{teacher.pricehour}} €/hora</li>
-                    <li >{{(teacher.remote === 1)? 'Remoto': 'Presencial'}}</li>
+                    <li>{{(teacher.remote === 1)? 'Remoto': 'Presencial'}}</li>
                     <li *ngIf="teacher.subject!==null">{{teacher.subject}}</li>
                 </ul>
             </div>
             <button class="btn btn-primary">Contactar</button>
         </div>
         <p><span>Descripción:<br></span> {{teacher.experience}}</p>
-    </div>  
+    </div>
 </article>
 <article class="opiniones container">
     <div class="row">
         <div class="col">
             <article>
-                <div>OPINIONES<hr></div>
-                
+                <div>OPINIONES
+                    <hr>
+                </div>
+
                 <p class="opinion" *ngFor="let coment of coments">
                     {{coment.name}} : {{coment.opinion}}
                 </p>

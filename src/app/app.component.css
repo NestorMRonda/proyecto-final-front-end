@@ -21,27 +21,34 @@ header nav {
     text-align: center;
     padding-top: 4px;
     font-weight: bolder;
+    color: black;
+    border: none;
 }
 
 #ayuda:hover {
     transform: scale(1.2);
     background-color: var(--colorAyuda);
+    border: none;
 }
 
 header nav ul li {
     margin: 15px;
-    background-color: white;
+    background-color: var(--colorsecundario);
+    color: white;
+    text-align: center;
     padding: 7px;
     border-radius: 15px;
     font-size: 1.2em;
-    transition: 0.5s ease-out;
+    transition: 0.8s ease-out;
     cursor: pointer;
     font-family: var(--fuentetitulos);
+    border: 2px solid var(--colorsecundario);
 }
 
 header nav ul li:hover {
-    background-color: var(--Azul);
-
+    background-color: var(--colornav);
+    color: black;
+    border: 2px solid var(--colorsecundario);
 }
 
 header nav ul {
@@ -58,13 +65,13 @@ header figure {
 header figure img {
     width: 15em;
     height: 8em;
-    transition: 1s;
+    transition: .5s;
     cursor: pointer;
 }
 
 header figure img:hover {
-    width: 16em;
-    height: 9em;
+    width: 17em;
+
 }
 
 /* Comienzo de FOOTER */
