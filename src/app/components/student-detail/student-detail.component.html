@@ -1,0 +1,22 @@
+<article class="student container">
+    <div class="row">
+        <div class="col-8"><img [src]="this.url"></div>
+        <div class="col-4">
+            <h4>{{student.name}} {{student.surname}}</h4>
+        </div>
+    </div>  
+</article>
+<article class="opiniones container">
+    <div class="row">
+        <div class="col">
+            <article>
+                <div>Comentarios a profes<hr></div>
+                
+                <p class="opinion" *ngFor="let coment of coments">
+                    {{coment.name}} : {{coment.opinion}}
+                </p>
+
+            </article>
+        </div>
+    </div>
+</article>

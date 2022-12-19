@@ -8,19 +8,16 @@ import { TeachersService } from 'src/app/services/teachers.service';
   styleUrls: ['./student-detail-navbar.component.css']
 })
 export class StudentDetailNavbarComponent {
-  teacher: any;
+  student: any;
 
   constructor(
-    private teachersService: TeachersService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) {
-    this.teacher = {}
+    private teachersService: TeachersService) {
+    this.student = {}
   }
 
-  ngOnInit() {
-    this.activatedRoute.params.subscribe(async params => {
+  async ngOnInit() {
+    this.student = await this.teachersService.getUserByToken()
 
-      this.teacher = await this.teachersService.getById(+params['teacherId'])
-    })
+
   }
 }
