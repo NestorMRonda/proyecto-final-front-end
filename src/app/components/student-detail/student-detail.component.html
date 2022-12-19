@@ -4,6 +4,11 @@
         <div class="col-4">
             <h4>{{student.name}} {{student.surname}}</h4>
         </div>
+        <p><span>Descripción:<br></span>
+            <span>Fecha de nacimiento:</span> {{student.birthdate | date:"dd-MM-YYYY"}}<br>
+            <span>Correo electrónico:</span> {{student.email}}<br>
+            <span>Teléfono de contacto:</span> {{student.phone}}<br>
+        </p>
     </div>  
 </article>
 <article class="opiniones container">
@@ -11,7 +16,6 @@
         <div class="col">
             <article>
                 <div>Comentarios a profes<hr></div>
-                
                 <p class="opinion" *ngFor="let coment of coments">
                     {{coment.name}} : {{coment.opinion}}
                 </p>

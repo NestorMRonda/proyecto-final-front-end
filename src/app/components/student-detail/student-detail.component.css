@@ -26,28 +26,13 @@ article.student div div h4 {
     font-weight: bold;
     padding: 10px;
     display: flex;
+    width: 100%;
 }
 
 article.student div div small {
     padding: 10px;
 }
 
-article.student div div.tags ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 5px;
-    padding: 5px;
-    margin: 5px;
-}
-
-article.student div div.tags ul li {
-    padding: 5px;
-    background-color: var(--Verde);
-    color: black;
-    border-radius: 5px;
-    transition: 1s;
-}
 
 article.student div div button {
     margin-top: 25px;
