@@ -94,6 +94,12 @@ export class TeachersService {
     )
   }
 
+  newStudent(pBody: any) {
+    return firstValueFrom(
+      this.httpClient.post<any>(`${this.baseUrl}/newStudent`, pBody)
+    )
+  }
+
   /* update(pTeacher: any) {
     return firstValueFrom(
       this.httpClient.put<any>(`${this.baseUrl}/${pTeacher}`, pTeacher)

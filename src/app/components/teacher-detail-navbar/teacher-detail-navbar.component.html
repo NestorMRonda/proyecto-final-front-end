@@ -2,7 +2,8 @@
     <div class="row">
         <ul>
             <li class="col" [routerLink]="['profile',this.teacher.id]">Perfil</li>
-            <!-- poner el 3 variable (this.teacher.id)-->
+
+            <!--Mensajería aún no funciona, cuando esté disponible cambiar el ngIf -->
             <li *ngIf="teacher.type === 'teacher'" class="col">Mensajería</li>
             <li *ngIf="teacher.type === 'teacher'" class="col" [routerLink]="['edit']">Editar</li>
             <li *ngIf="teacher.type === 'teacher'" [routerLink]="['request']" class="col">Solicitudes</li>

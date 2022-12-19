@@ -13,7 +13,9 @@
                 </ul>
             </div>
             <!-- *ngIf="teacher.type === 'user'" -->
-            <button class="btn btn-primary">Solicitar clases</button>
+            <button *ngIf="this.studentId.id !== +this.paramId" (click)="onClick(teacher.id)"
+                class="btn btn-primary">Solicitar
+                clases</button>
         </div>
         <p><span>Descripción:<br></span> {{teacher.experience}}</p>
     </div>
