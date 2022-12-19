@@ -1,0 +1,46 @@
+section {
+    width: 60%;
+    margin: 0 auto;
+}
+
+article {
+    font-family: var(--fuenteprincipal);
+    background-color: var(--colorsecundario);
+    margin: 20px auto;
+    padding: 15px;
+    color: white;
+    display: flex;
+    gap: 20px;
+    border-radius: 10px;
+    min-width: 80%;
+    width: fit-content;
+}
+
+button {
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: .7s;
+}
+
+button:first-of-type {
+    background-color: lightgreen;
+}
+
+button:first-of-type:hover {
+    background-color: rgb(70, 232, 70);
+}
+
+button:last-of-type {
+    background-color: lightcoral;
+}
+
+button:last-of-type:hover {
+    background-color: rgb(233, 58, 58);
+}
+
+.strong {
+    font-weight: bold;
+}

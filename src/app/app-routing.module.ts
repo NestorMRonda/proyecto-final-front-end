@@ -14,6 +14,7 @@ import { TeacherDetailEditprofileComponent } from './components/teacher-detail-e
 import { TeacherDetailNavbarComponent } from './components/teacher-detail-navbar/teacher-detail-navbar.component';
 import { TeacherDetailsComponent } from './components/teacher-details/teacher-details.component';
 import { TeacherListComponent } from './components/teacher-list/teacher-list.component';
+import { TeacherRequestComponent } from './components/teacher-request/teacher-request.component';
 import { TeacherSingUpComponent } from './components/teacher-sing-up/teacher-sing-up.component';
 import { LoginGuard } from './guards/login.guard';
 import { TypeGuard } from './guards/type.guard';
@@ -39,7 +40,8 @@ const routes: Routes = [
     path: 'profile/teacher', component: TeacherDetailNavbarComponent, canActivate: [LoginGuard],
     children: [
       { path: 'profile/:teacherId', component: TeacherDetailsComponent, canActivate: [LoginGuard] },
-      { path: 'edit', component: TeacherDetailEditprofileComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'teacher' } }
+      { path: 'edit', component: TeacherDetailEditprofileComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'teacher' } },
+      { path: 'request', component: TeacherRequestComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'teacher' } }
     ]
   },
   { path: 'teacher/:teacherId', component: TeacherDetailsComponent },

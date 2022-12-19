@@ -1,0 +1,9 @@
+<section>
+    <article *ngFor="let user of arrRequest">
+        <p>¿Deseas aceptar la solicitud de <span class="strong">{{user.name}} {{user.surname}}</span>?</p>
+        <div>
+            <button>Aceptar</button>
+            <button>Denegar</button>
+        </div>
+    </article>
+</section>

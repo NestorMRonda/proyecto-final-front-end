@@ -16,6 +16,14 @@ export class TeachersService {
 
   }
 
+  getHeaders() {
+    return {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('token')!
+      })
+    }
+  }
+
   getAll(): Promise<Teacher[]> {
     return firstValueFrom(
       this.httpClient.get<Teacher[]>(this.baseUrl)
@@ -47,6 +55,13 @@ export class TeachersService {
     )
   }
 
+  getUserPending(): Promise<any> {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/request`, this.getHeaders())
+    )
+  }
+
+
   filterTeacherList(pBody: any) {
     return firstValueFrom(
       this.httpClient.post<Teacher[]>(`${this.baseUrl}/filter`, pBody)
@@ -59,27 +74,17 @@ export class TeachersService {
     )
   }
 
+  /* Eliminar esta o la de abajo */
   getUserByToken() {
-    //Cabecera:
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': localStorage.getItem('token')!
-      })
-    }
 
     return firstValueFrom(
-      this.httpClient.get<any>(`${this.baseUrl}/profile`, httpOptions)
+      this.httpClient.get<any>(`${this.baseUrl}/profile`, this.getHeaders())
     )
   }
   profile() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': localStorage.getItem('token')!
-      })
-    }
 
     return firstValueFrom(
-      this.httpClient.get<any>(`${this.baseUrl}/profile`, httpOptions)
+      this.httpClient.get<any>(`${this.baseUrl}/profile`, this.getHeaders())
     )
   }
 

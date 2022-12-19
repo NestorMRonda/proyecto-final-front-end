@@ -3,8 +3,9 @@
         <ul>
             <li class="col" [routerLink]="['profile',this.teacher.id]">Perfil</li>
             <!-- poner el 3 variable (this.teacher.id)-->
-            <li class="col">Mensajería</li>
+            <li *ngIf="teacher.type === 'teacher'" class="col">Mensajería</li>
             <li *ngIf="teacher.type === 'teacher'" class="col" [routerLink]="['edit']">Editar</li>
+            <li *ngIf="teacher.type === 'teacher'" [routerLink]="['request']" class="col">Solicitudes</li>
         </ul>
     </div>
 </nav>

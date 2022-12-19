@@ -96,7 +96,6 @@ export class TeacherSingUpComponent {
       timer: 1500
     })
 
-    window.open(`mailto:jagudox@gmail.com?subject=subject&body=body`);
     this.router.navigate([`/home`])
 
   }

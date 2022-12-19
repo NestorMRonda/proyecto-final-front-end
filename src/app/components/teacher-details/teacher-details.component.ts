@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { StudentsService } from 'src/app/services/students.service';
 import { TeachersService } from 'src/app/services/teachers.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class TeacherDetailsComponent {
   teacher: any
   coments: any
   url: string
-  constructor(private teachersService: TeachersService, private activatedRoute: ActivatedRoute) {
+  constructor(private teachersService: TeachersService, private activatedRoute: ActivatedRoute, public studentService: StudentsService) {
     this.teacher = {};
     this.coments = [];
     this.url = "";
