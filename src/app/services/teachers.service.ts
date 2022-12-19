@@ -88,6 +88,12 @@ export class TeachersService {
     )
   }
 
+  updateStatus(pBody: any) {
+    return firstValueFrom(
+      this.httpClient.put<any>(`${this.baseUrl}/update/status`, pBody)
+    )
+  }
+
   /* update(pTeacher: any) {
     return firstValueFrom(
       this.httpClient.put<any>(`${this.baseUrl}/${pTeacher}`, pTeacher)
