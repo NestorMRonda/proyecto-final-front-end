@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
+import { Student } from '../interfaces/student.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,12 @@ export class StudentsService {
     )
   }
 
+  getById(pId: number): Promise<Student> {
+    return firstValueFrom(
+      this.httpClient.get<Student>(`${this.baseUrl}/${pId}`)
+    )
+  }
+
   getInactive() {
     return firstValueFrom(
       this.httpClient.get<any>(`${this.baseUrl}/inactive`)
@@ -30,6 +37,12 @@ export class StudentsService {
   getStudentByEmail(pBody: any): Promise<any> {
     return firstValueFrom(
       this.httpClient.post<any>(`${this.baseUrl}/email`, { email: pBody })
+    )
+  }
+
+  getComents(pId: number): Promise<any> {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/${pId}/coments`)
     )
   }
 

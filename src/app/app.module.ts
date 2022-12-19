@@ -20,6 +20,7 @@ import { StudentDetailNavbarComponent } from './components/student-detail-navbar
 import { StudentDetailEditprofileComponent } from './components/student-detail-editprofile/student-detail-editprofile.component';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { StudentOpinionComponent } from './components/student-opinion/student-opinion.component';
+import { StudentDetailComponent } from './components/student-detail/student-detail.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { StudentOpinionComponent } from './components/student-opinion/student-op
     StudentDetailEditprofileComponent,
     AdminPanelComponent,
     StudentOpinionComponent,
+    StudentDetailComponent,
 
   ],
   imports: [

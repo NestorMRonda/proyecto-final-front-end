@@ -6,6 +6,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { LoginComponent } from './components/login/login.component';
 import { StudentDetailEditprofileComponent } from './components/student-detail-editprofile/student-detail-editprofile.component';
 import { StudentDetailNavbarComponent } from './components/student-detail-navbar/student-detail-navbar.component';
+import { StudentDetailComponent } from './components/student-detail/student-detail.component';
 import { StudentOpinionComponent } from './components/student-opinion/student-opinion.component';
 import { StudentSingUpComponent } from './components/student-sing-up/student-sing-up.component';
 import { StudentsPrivateComponent } from './components/students-private/students-private.component';
@@ -13,7 +14,6 @@ import { TeacherDetailEditprofileComponent } from './components/teacher-detail-e
 import { TeacherDetailNavbarComponent } from './components/teacher-detail-navbar/teacher-detail-navbar.component';
 import { TeacherDetailsComponent } from './components/teacher-details/teacher-details.component';
 import { TeacherListComponent } from './components/teacher-list/teacher-list.component';
-import { TeacherPrivateComponent } from './components/teacher-private/teacher-private.component';
 import { TeacherSingUpComponent } from './components/teacher-sing-up/teacher-sing-up.component';
 import { LoginGuard } from './guards/login.guard';
 import { TypeGuard } from './guards/type.guard';
@@ -28,7 +28,7 @@ const routes: Routes = [
   {
     path: 'profile/students', component: StudentDetailNavbarComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'user' },
     children: [
-      { path: 'profile/:studentId', component: StudentsPrivateComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'user' } },
+      { path: 'profile/:studentId', component: StudentDetailComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'user' } },
       { path: 'edit', component: StudentDetailEditprofileComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'user' } }
     ]
   },
