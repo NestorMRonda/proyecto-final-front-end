@@ -16,5 +16,15 @@ export class TeacherRequestComponent {
     this.arrRequest = await this.teacherService.getUserPending()
   }
 
+  async onClick(pStatus: string, userId: number) {
+    let teacher = await this.teacherService.getUserByToken()
+    await this.teacherService.updateStatus({
+      status: pStatus,
+      user_id: userId,
+      teacher_id: teacher.id
+    })
+
+    this.arrRequest = await this.teacherService.getUserPending()
+  }
 
 }
