@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { StudentsService } from 'src/app/services/students.service';
 import { SubjectsService } from 'src/app/services/subjects.service';
 import { TeachersService } from 'src/app/services/teachers.service';
 import Swal from 'sweetalert2';
@@ -21,7 +22,7 @@ export class TeacherSingUpComponent {
   @ViewChild('inputPlaces') inputPlaces!: ElementRef;
 
 
-  constructor(private subjectService: SubjectsService, private teacherService: TeachersService, private router: Router) {
+  constructor(private subjectService: SubjectsService, private teacherService: TeachersService, private router: Router, private studentService: StudentsService) {
     this.emailRegExp = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)
     this.regExp = new RegExp(/^(?=.*\d).{4,30}$/)
 
@@ -82,22 +83,25 @@ export class TeacherSingUpComponent {
     fd.append('active', "1")
     fd.append('remote', formu.remote)
 
-    await this.teacherService.register(fd)
+    const user = await this.teacherService.register(fd)
 
     /* Sacar el id del teacher por el email */
     const teacherSubject = { user_email: formu.email, subject: formu.subject };
     await this.subjectService.createTeacherSubject(teacherSubject);
 
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Te has registrado correctamente',
-      showConfirmButton: false,
-      timer: 1500
-    })
-
-    this.router.navigate([`/home`])
-
+    if (user) {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Te has registrado correctamente',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      this.studentService.sendEmail({
+        email: "to@example.com"
+      })
+      this.router.navigate([`/login`])
+    }
   }
 
   loadAutocomplete() {

@@ -36,7 +36,7 @@ export class StudentsService {
     )
   }
 
-  getInactive() {
+  getInactive(): Promise<any> {
     return firstValueFrom(
       this.httpClient.get<any>(`${this.baseUrl}/inactive`)
     )
@@ -108,6 +108,12 @@ export class StudentsService {
 
   isTypeAdmin(pType: string): boolean {
     return (localStorage.getItem('type') === pType || localStorage.getItem('type') === "admin") ? true : false;
+  }
+
+  sendEmail(pBody: any) {
+    return firstValueFrom(
+      this.httpClient.post<any>(`http://localhost:3000/email`, pBody)
+    )
   }
 
 

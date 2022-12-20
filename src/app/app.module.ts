@@ -22,6 +22,7 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
 import { StudentOpinionComponent } from './components/student-opinion/student-opinion.component';
 import { StudentDetailComponent } from './components/student-detail/student-detail.component';
 import { TeacherRequestComponent } from './components/teacher-request/teacher-request.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { TeacherRequestComponent } from './components/teacher-request/teacher-re
     StudentOpinionComponent,
     StudentDetailComponent,
     TeacherRequestComponent,
+    MessagesComponent,
 
   ],
   imports: [

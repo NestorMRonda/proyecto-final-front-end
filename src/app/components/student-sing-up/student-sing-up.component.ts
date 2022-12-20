@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StudentsService } from 'src/app/services/students.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-student-sing-up',
@@ -54,10 +55,19 @@ export class StudentSingUpComponent {
 
     const user = await this.studentService.register(fd)
     if (user) {
+      this.studentService.sendEmail({
+        email: "to@example.com"
+      })
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Te has registrado correctamente',
+        showConfirmButton: false,
+        timer: 1500
+      })
       this.router.navigate(['/login'])
       this.formulario.reset()
     }
-
   }
 
   checkError(campo: string, error: string): boolean | undefined {

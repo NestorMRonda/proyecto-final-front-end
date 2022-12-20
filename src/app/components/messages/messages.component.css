@@ -1,0 +1,82 @@
+div.profile {
+    display: flex;
+    justify-content: center;
+    font-family: var(--fuentetitulos)
+}
+
+div.profile img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+div.profile h3 {
+    padding: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+span {
+    font-weight: bold;
+}
+
+
+
+div.chat {
+    width: 40%;
+    min-height: 400px;
+    height: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    color: white;
+    padding: 30px;
+    line-height: 1.2em;
+    font-family: var(--fuentepizarra);
+    font-size: 1.5em;
+    overflow-y: scroll;
+}
+
+p {
+    background-color: lightgreen;
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 5px;
+    color: black;
+    width: 50%;
+}
+
+p.align {
+    text-align: left;
+    background-color: lightblue;
+    width: 50%;
+    margin-left: 50%;
+}
+
+.text-box {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.text-box input {
+    height: 40px;
+    width: 250px;
+    font-family: var(--fuenteprincipal);
+    border-radius: 10px;
+    background-color: lightblue;
+}
+
+button {
+    padding: 10px;
+    background-color: var(--Amarillo);
+    border-radius: 5px;
+    font-family: var(--fuenteprincipal);
+    transition: 1s;
+    height: 40px;
+}
+
+button:hover {
+    background-color: rgb(239, 211, 87);
+}
