@@ -1,26 +1,27 @@
-div.ayuda {
-    background-image: url('../../../assets/images/help.png');
-    position: relative;
-    display: block;
-    margin: auto;
-    width: 1005px;;  
-    height: 1191px;
-    max-width: 100%;
+.container {
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+    background-image: url("../../../assets/images/pizarra.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 610px;
+    height: 430px;
 
 }
 
+#accordionExample {
+    font-family: var(--fuenteprincipal);
+    padding-top: 1em;
+}
 
-ul{
-    position:aboslute;
-    padding: 7em;;
-    padding-left: 7.7em;
-    list-style: none;
-    color: black;
-    font-size: 1.7em;
-    line-height: 1.8em;
-    font-family: var(--fuentetitulos);
-    font-weight: bold;
-    width: 100%;
-    max-width: 100%;
-    
+div.ayuda {
+    text-align: center;
+}
+
+div.faq ul {
+
+    text-align: center;
+    color: #2e4543
 }
