@@ -14,6 +14,7 @@ export class TeacherRequestComponent {
 
   async ngOnInit() {
     this.arrRequest = await this.teacherService.getUserPending()
+    console.log(this.arrRequest)
   }
 
   async onClick(pStatus: string, userId: number) {

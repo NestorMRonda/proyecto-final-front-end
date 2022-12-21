@@ -1,0 +1,19 @@
+<div class="profile">
+    <div>
+        <img [src]="teacher.avatar" [alt]="teacher.name">
+    </div>
+    <div>
+        <h3>{{teacher.name}} {{teacher.surname}}</h3>
+    </div>
+</div>
+
+<div class="chat" #divChat>
+    <!-- Cambiar el 30 por el userId cuando esté montado lo de Alex -->
+    <p *ngFor="let message of this.arrChat" [ngClass]="{'align': message.user_id === userId}">{{message.message}} </p>
+</div>
+
+<div class="text-box">
+    <input (keyup.enter)="onClick()" type="text" [(ngModel)]="mensaje" placeholder="Escribe un mensaje">
+
+    <button (click)="onClick()">Enviar</button>
+</div>

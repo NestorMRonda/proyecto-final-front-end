@@ -4,6 +4,7 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
 import { HelpComponent } from './components/help/help.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginComponent } from './components/login/login.component';
+import { MessagesComponent } from './components/messages/messages.component';
 import { StudentDetailEditprofileComponent } from './components/student-detail-editprofile/student-detail-editprofile.component';
 import { StudentDetailNavbarComponent } from './components/student-detail-navbar/student-detail-navbar.component';
 import { StudentDetailComponent } from './components/student-detail/student-detail.component';
@@ -50,7 +51,8 @@ const routes: Routes = [
   },
   { path: 'teacher/:teacherId', component: TeacherDetailsComponent },
   { path: 'help', component: HelpComponent },
-  { path: 'opinion', component: StudentOpinionComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'user' } },
+  { path: 'opinion/:teacherId', component: StudentOpinionComponent, canActivate: [LoginGuard] },
+  { path: 'message/:teacherId', component: MessagesComponent, canActivate: [LoginGuard] },
   { path: '**', redirectTo: 'home' }
 
 ];

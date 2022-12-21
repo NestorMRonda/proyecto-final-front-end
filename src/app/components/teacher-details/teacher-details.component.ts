@@ -27,7 +27,7 @@ export class TeacherDetailsComponent {
   async ngOnInit() {
 
     /* La linea treinta sirve para que en caso de que seas profesor no te aparezca tu propio botón de solicitar clases pero si el de otros profesores, y de esta manera puedas recibir clases aunque seas profesor */
-    this.studentId = await this.teachersService.getUserByToken()
+    if (this.studentService.isLogged()) this.studentId = await this.teachersService.getUserByToken()
 
     this.activatedRoute.params.subscribe(async params => {
 

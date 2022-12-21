@@ -30,13 +30,18 @@ export class StudentsService {
     )
   }
 
-  getById(pId: number): Promise<Student> {
+  getById(pId: number): Promise<any> {
     return firstValueFrom(
-      this.httpClient.get<Student>(`${this.baseUrl}/${pId}`)
+      this.httpClient.get<any>(`${this.baseUrl}/${pId}`)
+    )
+  }
+  getUserById(pId: number): Promise<any> {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/usuario/${pId}`)
     )
   }
 
-  getInactive() {
+  getInactive(): Promise<any> {
     return firstValueFrom(
       this.httpClient.get<any>(`${this.baseUrl}/inactive`)
     )
@@ -110,7 +115,7 @@ export class StudentsService {
     return (localStorage.getItem('type') === pType || localStorage.getItem('type') === "admin") ? true : false;
   }
 
-  getTeachersByStudent(pId:number){
+  getTeachersByStudent(pId: number) {
     return firstValueFrom(
       this.httpClient.get<any>(`${this.baseUrl}/${pId}/teachers`)
     )
@@ -119,6 +124,12 @@ export class StudentsService {
   getUserByToken() {
     return firstValueFrom(
       this.httpClient.get<any>(`${this.baseUrl}/profile`, this.getHeaders())
+    )
+  }
+
+  sendEmail(pBody: any) {
+    return firstValueFrom(
+      this.httpClient.post<any>(`http://localhost:3000/email`, pBody)
     )
   }
 

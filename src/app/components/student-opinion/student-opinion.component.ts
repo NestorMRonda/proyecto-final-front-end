@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StudentsService } from 'src/app/services/students.service';
+import { TeachersService } from 'src/app/services/teachers.service';
 
 @Component({
   selector: 'app-student-opinion',
@@ -10,20 +11,30 @@ import { StudentsService } from 'src/app/services/students.service';
 })
 export class StudentOpinionComponent {
   formulario: FormGroup
-
-  constructor(private studentService: StudentsService, private router: Router) {
+  teacherId: number
+  userId: number
+  constructor(private studentService: StudentsService, private router: Router, private activatedRoute: ActivatedRoute, private teacherService: TeachersService) {
+    this.teacherId = 0
+    this.userId = 0
     this.formulario = new FormGroup({
       opinion: new FormControl('Me lo he pasado chachi', [Validators.required]),
       score: new FormControl(8, [Validators.required])
     })
   }
 
-  async onSubmit(): Promise<void> {
+  async ngOnInit() {
+    const { id } = await this.teacherService.getUserByToken()
+    this.userId = id
+    this.activatedRoute.params.subscribe(async (params) => {
+      this.teacherId = params['teacherId']
+    })
+  }
 
-    let user_has_teacherId = 4; //cambiar por id de user_has_teacher
-    await this.studentService.createOpinion({ id: user_has_teacherId, opinion: this.formulario.value.opinion, score: this.formulario.value.score })
-    /* Para terminar el navigate es necesario  recuperar el user_id de user_has_teacher y eso no se puede hacer hasta que no se haya creado una conexión previa entre user y teacher*/
-    /*     this.router.navigate(['profile/students/profile', 90]) */
+  async onSubmit(): Promise<void> {
+    /* Cambiar el user_id por this.userId cuando este todo listo */
+    await this.studentService.createOpinion({ user_id: this.userId, teacher_id: this.teacherId, opinion: this.formulario.value.opinion, score: this.formulario.value.score })
+
+    this.router.navigate(['profile/students/profile', this.userId])
     //Meterle un navigate
   }
 

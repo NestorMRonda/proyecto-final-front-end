@@ -7,5 +7,14 @@ export interface Student {
     password: string,
     phone: string,
     avatar?: string,
-    type: string
+    type: string,
+    experience?: string,
+    pricehour?: number,
+    address?: string,
+    active?: boolean, //A lo mejor es number
+    media_score?: number,
+    subject?: string,
+    remote?: number,
+    lat?: number,
+    long?: number,
 }

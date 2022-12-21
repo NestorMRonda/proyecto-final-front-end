@@ -57,8 +57,6 @@ export class StudentDetailEditprofileComponent {
     fd.append('email', formu.email)
     fd.append('phone', formu.phone)
 
-    console.log(fd)
-    /* El id debería ser de defaultstudent.id,  */
     const user = await this.studentService.updateStudentProfile(this.defaultStudent.id, fd)
 
     Swal.fire({

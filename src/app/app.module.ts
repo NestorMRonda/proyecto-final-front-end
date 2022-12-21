@@ -24,6 +24,7 @@ import { StudentDetailComponent } from './components/student-detail/student-deta
 import { TeacherRequestComponent } from './components/teacher-request/teacher-request.component';
 import { TeacherHasStudentsComponent } from './components/teacher-has-students/teacher-has-students.component';
 import { StudentHasTeachersComponent } from './components/student-has-teachers/student-has-teachers.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { StudentHasTeachersComponent } from './components/student-has-teachers/s
     TeacherRequestComponent,
     TeacherHasStudentsComponent,
     StudentHasTeachersComponent,
+    MessagesComponent,
 
   ],
   imports: [

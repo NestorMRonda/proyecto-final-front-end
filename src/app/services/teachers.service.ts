@@ -106,7 +106,7 @@ export class TeachersService {
     )
   }
 
-  getStudentsByTeacher(pId: number){
+  getStudentsByTeacher(pId: number) {
     return firstValueFrom(
       this.httpClient.get<any>(`${this.baseUrl}/${pId}/students`)
     )

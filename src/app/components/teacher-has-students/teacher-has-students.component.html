@@ -12,6 +12,6 @@
                 <li>Telefono: {{student.phone}}</li>
             </ul>
         </div>
-        <button class="btn btn-primary">Contactar</button>
+        <button [routerLink]="['/message',student.id]" class="btn btn-primary">Contactar</button>
     </article>
 </section>

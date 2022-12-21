@@ -12,6 +12,8 @@
                 <li>Telefono: {{teacher.phone}}</li>
             </ul>
         </div>
-        <div class="buttons"><button class="btn btn-primary">Contactar</button><button class="btn btn-warning">Opinar</button></div>
+        <div class="buttons"><button [routerLink]="['/message',teacher.id]"
+                class="btn btn-primary">Contactar</button><button [routerLink]="['/opinion', teacher.id]"
+                class="btn btn-warning">Opinar</button></div>
     </article>
 </section>
