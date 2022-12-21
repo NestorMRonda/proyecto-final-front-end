@@ -1,0 +1,96 @@
+section {
+    margin: 80px auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+
+
+article.students {
+    margin-top: 35px;
+    background-color: var(--colorsecundario);
+    color: white;
+    min-height: 480px;
+    min-width: 350px;
+    max-width: 360px;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 1s;
+    font-family: 'Montserrat';
+}
+
+article.students:hover {
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+article.students img {
+    display: block;
+    margin: 0 auto;
+    width: 320px;
+    height: 250px;
+    border-radius: 3%;
+    transition: 1s;
+}
+
+section h4 {
+    font-family: var(--fuenteprincipal);
+    font-size: 2em;
+}
+
+article.students h4 {
+    font-weight: bold;
+    padding: 10px;
+    font-family: var(--fuenteprincipal);
+    font-size: 20px;
+}
+
+article.students p {
+    padding: 10px;
+    font-size: 15px;
+    width: 340px;
+}
+
+article.students p span {
+    font-weight: bold;
+}
+
+article.students ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 5px;
+    padding: 5px;
+}
+
+article.students ul li {
+    padding: 5px;
+    background-color: var(--Verde);
+    color: black;
+    border-radius: 5px;
+    transition: 1s;
+}
+
+article.students ul li:hover {
+    background-color: var(--colornav);
+}
+
+article.students div.cabecera-student {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+article.students:hover img {
+    opacity: 0.8;
+}
+
+article.students button {
+    margin-top: 25px;
+    margin-left: 25px;
+    padding: 15px;
+    display: flex;
+    margin: 0 auto;
+}

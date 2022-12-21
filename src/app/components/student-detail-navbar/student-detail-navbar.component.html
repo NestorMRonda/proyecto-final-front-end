@@ -4,6 +4,7 @@
             <li class="col" [routerLink]="['profile',this.student.id]">Perfil</li>
             <!-- poner el 3 variable (this.teacher.id)-->
             <li class="col">Mensajería</li>
+            <li *ngIf="student.type === 'user'" class="col" [routerLink]="['teachers']">Mis profesores</li>
             <li *ngIf="student.type === 'user'" class="col" [routerLink]="['edit']">Editar</li>
         </ul>
     </div>

@@ -15,7 +15,14 @@ export class TeacherHasStudentsComponent {
   }
 
   async ngOnInit(){
-    await this.teachersService.getStudentsByTeacher()
+    const teacherLogged = await this.teachersService.getUserByToken()
+    this.arrStudents= await this.teachersService.getStudentsByTeacher(teacherLogged.id) 
+    this.arrStudents.map(student => {
+      if (student.avatar !== "undefined") { student.avatar = `http://localhost:3000/images/${student.avatar}` }
+      else {
+        student.avatar = "../../assets/images/Teacher_icon.png"
+      }
+    })
   }
 
 }

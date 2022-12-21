@@ -1,1 +1,17 @@
-<p>student-has-teachers works!</p>
+<section>
+    <h4 *ngIf="this.arrTeachers.length === 0">Oh vaya, parece que esto está vacío😥</h4>
+    <article class="teachers" *ngFor="let teacher of arrTeachers">
+        <div class="cabecera-student">
+            <h4>{{teacher.name}} {{teacher.surname}}</h4>
+        </div>
+        <img [src]="teacher.avatar" alt="Avatar">
+        <div class="tags">
+            <ul>
+                <li>Fecha de nacimiento: {{teacher.birthdate | date:"dd-MM-YYYY"}}</li>
+                <li>Correo: {{teacher.email}}</li>
+                <li>Telefono: {{teacher.phone}}</li>
+            </ul>
+        </div>
+        <div class="buttons"><button class="btn btn-primary">Contactar</button><button class="btn btn-warning">Opinar</button></div>
+    </article>
+</section>

@@ -110,5 +110,17 @@ export class StudentsService {
     return (localStorage.getItem('type') === pType || localStorage.getItem('type') === "admin") ? true : false;
   }
 
+  getTeachersByStudent(pId:number){
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/${pId}/teachers`)
+    )
+  }
+
+  getUserByToken() {
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/profile`, this.getHeaders())
+    )
+  }
+
 
 }
