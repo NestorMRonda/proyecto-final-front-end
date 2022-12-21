@@ -47,7 +47,7 @@ const routes: Routes = [
   },
   { path: 'teacher/:teacherId', component: TeacherDetailsComponent },
   { path: 'help', component: HelpComponent },
-  { path: 'opinion/:teacherId', component: StudentOpinionComponent, canActivate: [LoginGuard, TypeGuard], data: { type: 'user' } },
+  { path: 'opinion/:teacherId', component: StudentOpinionComponent, canActivate: [LoginGuard] },
   { path: 'message/:teacherId', component: MessagesComponent, canActivate: [LoginGuard] },
   { path: '**', redirectTo: 'home' }
 

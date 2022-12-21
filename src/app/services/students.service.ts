@@ -30,9 +30,9 @@ export class StudentsService {
     )
   }
 
-  getById(pId: number): Promise<Student> {
+  getById(pId: number): Promise<any> {
     return firstValueFrom(
-      this.httpClient.get<Student>(`${this.baseUrl}/${pId}`)
+      this.httpClient.get<any>(`${this.baseUrl}/${pId}`)
     )
   }
 
