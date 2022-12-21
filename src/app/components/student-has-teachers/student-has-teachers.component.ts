@@ -19,7 +19,6 @@ export class StudentHasTeachersComponent {
     const userLogged = await this.teachersService.getUserByToken()
     
     this.arrTeachers= await this.studentsService.getTeachersByStudent(userLogged.id) 
-    console.log(this.arrTeachers)
     this.arrTeachers.map(teacher => {
       console.log(teacher)
       if (teacher.avatar !== "undefined") { teacher.avatar = `http://localhost:3000/images/${teacher.avatar}` }

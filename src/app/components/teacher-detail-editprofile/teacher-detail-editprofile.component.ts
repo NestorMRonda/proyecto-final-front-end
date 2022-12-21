@@ -83,7 +83,6 @@ export class TeacherDetailEditprofileComponent {
     
     /* El id debería ser de defaultteacher.id,  */
     const user = await this.teacherService.updateTeacherProfile(this.defaultTeacher.id, fd)
-    console.log(user)
 
     Swal.fire({
       position: 'center',
