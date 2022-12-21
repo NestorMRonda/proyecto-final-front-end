@@ -26,12 +26,12 @@ export class StudentSingUpComponent {
     this.formulario = new FormGroup({
 
       name: new FormControl('', [Validators.required]),
-      surname: new FormControl('Agudo', [Validators.required]),
+      surname: new FormControl('', [Validators.required]),
       birthdate: new FormControl(null, [Validators.required]),
-      email: new FormControl('pepito@gmail.com', [Validators.required, Validators.pattern(this.emailRegExp)]),
-      password: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
-      repitePassword: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
-      phone: new FormControl('655875404', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
+      email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegExp)]),
+      password: new FormControl('', [Validators.required, Validators.pattern(this.regExp)]),
+      repitePassword: new FormControl('', [Validators.required, Validators.pattern(this.regExp)]),
+      phone: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
       image: new FormControl('')
 
     }, [this.repitePasswordValidator])

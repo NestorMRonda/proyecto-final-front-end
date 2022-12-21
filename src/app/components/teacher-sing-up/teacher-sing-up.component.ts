@@ -32,17 +32,17 @@ export class TeacherSingUpComponent {
     this.formulario = new FormGroup({
 
       name: new FormControl('', [Validators.required]),
-      surname: new FormControl('Agudo', [Validators.required]),
+      surname: new FormControl('', [Validators.required]),
       birthdate: new FormControl(null, [Validators.required]),
-      email: new FormControl('pepito@gmail.com', [Validators.required, Validators.pattern(this.emailRegExp)]),
-      password: new FormControl('test1234', [Validators.required, Validators.pattern(this.regExp)]),
-      repitePassword: new FormControl('test1234', [Validators.required]),
-      phone: new FormControl('655875404', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
+      email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegExp)]),
+      password: new FormControl('', [Validators.required, Validators.pattern(this.regExp)]),
+      repitePassword: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
       subject: new FormControl(null, [Validators.required]),
       level: new FormControl(null, [Validators.required]),
-      experience: new FormControl('Haré lo que pueda y más de lo que pueda si es posible y haré lo posible, incluso lo imposible, si es que eso también es posible.'),
-      pricehour: new FormControl(14, [Validators.required]),
-      address: new FormControl(''),
+      experience: new FormControl(''),
+      pricehour: new FormControl(0, [Validators.required]),
+      address: new FormControl('', [Validators.required]),
       remote: new FormControl(false, [Validators.required]),
 
     }, [this.repitePasswordValidator])
