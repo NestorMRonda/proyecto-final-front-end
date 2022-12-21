@@ -174,7 +174,12 @@ export class TeacherListComponent {
     /* Estos son los valores de los filtros, utilizar cunado se creen los filtros en el teacher.service*/
     const filterData = { price: this.price, score: this.score, subject: this.asignatura, remote: this.remote }
     this.arrTeachers = await this.teacherService.filterTeacherList(filterData)
-
+    this.arrTeachers.map(teacher => {
+      if (teacher.avatar !== "undefined") { teacher.avatar = `http://localhost:3000/images/${teacher.avatar}` }
+      else {
+        teacher.avatar = "../../assets/images/Teacher_icon.png"
+      }
+    })
   }
 
   onNavigate(pId: number) {

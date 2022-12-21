@@ -17,8 +17,8 @@ export class LoginComponent {
 
   constructor(private studentsService: StudentsService, private router: Router) {
     this.formulario = new FormGroup({
-      email: new FormControl('pepito@gmail.com', [Validators.required]),
-      password: new FormControl('test1234', [Validators.required])
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
       /* Habría que ver si el email y la password coinciden con la base de datos*/
     })
     this.token = "";
