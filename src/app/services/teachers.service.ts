@@ -101,10 +101,14 @@ export class TeachersService {
   }
 
   updateTeacherProfile(pId: number, pBody: any): Promise<any> {
-    console.log(pBody)
     return firstValueFrom(
       this.httpClient.put<any>(`${this.baseUrl}/update/${pId}`, pBody)
     )
-    
+  }
+
+  getStudentsByTeacher(pId: number){
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/${pId}/students`)
+    )
   }
 }
