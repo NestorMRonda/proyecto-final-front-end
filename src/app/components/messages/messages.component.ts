@@ -47,10 +47,6 @@ export class MessagesComponent {
     /*  this.divChat.nativeElement.scrollTop = this.divChat.nativeElement.scrollHeight */
   }
 
-  onKeyPress($event: any): void {
-    console.log($event.target)
-  }
-
   async onClick() {
     await this.messagesService.sendMessages({
       user_id: 30, /* Cambiar estos id por los correspondientes- this.userId */
@@ -58,6 +54,7 @@ export class MessagesComponent {
       message: this.mensaje
     })
     this.arrChat = await this.messagesService.getMessages({ user_id: 30, teacher_id: 31 })
+    /* Cambiar estos dos por this.userId y this.teacherId */
     this.mensaje = ''
   }
 
